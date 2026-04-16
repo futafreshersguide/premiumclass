@@ -19,6 +19,119 @@
             color: #1a1e2b;
         }
 
+        /* Countdown Banner */
+        .countdown-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .countdown-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .countdown-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 20px;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 12px;
+            min-width: 70px;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20bd5a;
+            transform: translateY(-2px);
+        }
+
+        /* Class Start Info */
+        .class-start-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid #2563eb;
+        }
+
+        .class-start-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .class-start-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 16px;
+        }
+
+        .class-start-item i {
+            font-size: 2rem;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .deadline-badge {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
         /* Mode Toggle */
         .mode-toggle {
             position: fixed;
@@ -66,7 +179,7 @@
         }
 
         .admin-sidebar {
-            width: 280px;
+            width: 300px;
             background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
             color: white;
             padding: 30px 0;
@@ -104,7 +217,7 @@
 
         .admin-main {
             flex: 1;
-            margin-left: 280px;
+            margin-left: 300px;
             padding: 30px 40px;
         }
 
@@ -113,6 +226,63 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .admin-user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .activity-log {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .activity-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #eef2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-action {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .activity-meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 4px;
         }
 
         .welcome-card {
@@ -143,6 +313,12 @@
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            overflow-x: auto;
+        }
+
+        .data-table table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
         .data-table th {
@@ -150,6 +326,8 @@
             padding: 16px;
             background: #f8fafc;
             border-radius: 12px;
+            font-weight: 600;
+            color: #1e293b;
         }
 
         .data-table td {
@@ -176,6 +354,11 @@
             color: #dc2626;
         }
 
+        .btn-view {
+            background: #f0fdf4;
+            color: #15803d;
+        }
+
         .modal-admin {
             display: none;
             position: fixed;
@@ -190,7 +373,7 @@
             background: white;
             padding: 40px;
             border-radius: 24px;
-            max-width: 600px;
+            max-width: 700px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
@@ -223,27 +406,6 @@
             border-bottom: 2px solid #e2e8f0;
         }
 
-        .legal-modal-content h3 {
-            color: #334155;
-            margin: 20px 0 10px;
-        }
-
-        .legal-modal-content p {
-            margin-bottom: 15px;
-            line-height: 1.7;
-            color: #475569;
-        }
-
-        .legal-modal-content ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .legal-modal-content li {
-            margin-bottom: 8px;
-            color: #475569;
-        }
-
         .form-group {
             margin-bottom: 20px;
         }
@@ -252,6 +414,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: #334155;
         }
 
         .form-control {
@@ -260,6 +423,18 @@
             border: 2px solid #e2e8f0;
             border-radius: 12px;
             font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
         .public-content {
@@ -299,6 +474,27 @@
             font-weight: 700;
         }
 
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
         .btn {
             padding: 12px 28px;
             border-radius: 40px;
@@ -308,11 +504,16 @@
             background: #2563eb;
             color: white;
             transition: all 0.2s;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn:hover {
             background: #1d4ed8;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37,99,235,0.25);
         }
 
         .btn-outline {
@@ -327,7 +528,7 @@
         }
 
         .hero {
-            padding: 60px 0;
+            padding: 40px 0;
         }
 
         .level-grid {
@@ -362,28 +563,27 @@
             margin: 30px 0;
         }
 
-        .result-card {
+        .registration-section {
             background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin: 20px 0;
+            border-radius: 32px;
+            padding: 48px;
+            margin: 60px 0;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
         }
 
-        .grade-badge {
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-weight: 700;
-        }
-
-        .grade-a { background: #dcfce7; color: #15803d; }
-        .grade-b { background: #fef9c3; color: #854d0e; }
-        .grade-c { background: #fee2e2; color: #dc2626; }
-
-        .legal-links {
+        .agreement-checkbox {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin: 20px 0;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .agreement-checkbox input {
+            width: 20px;
+            height: 20px;
+            accent-color: #2563eb;
+            cursor: pointer;
         }
 
         .legal-link {
@@ -397,19 +597,6 @@
             color: #1e40af;
         }
 
-        .agreement-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 10px 0;
-        }
-
-        .agreement-checkbox input {
-            width: 20px;
-            height: 20px;
-            accent-color: #2563eb;
-        }
-
         .required-agreements {
             background: #fefce8;
             padding: 24px;
@@ -418,174 +605,210 @@
             margin: 24px 0;
         }
 
-        .registration-section {
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 50px 0 30px;
+            margin-top: 60px;
+            border-radius: 32px 32px 0 0;
+        }
+
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 4000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-modal-content {
             background: white;
-            border-radius: 32px;
-            padding: 48px;
-            margin: 60px 0;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 450px;
+            width: 90%;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status-pending {
+            background: #fef9c3;
+            color: #854d0e;
+        }
+
+        .status-completed {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 40px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .level-grid, .stats-grid, .class-start-grid, .form-row {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .admin-container {
+                flex-direction: column;
+            }
+            .admin-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .admin-main {
+                margin-left: 0;
+            }
+            .countdown-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .countdown-timer {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- Mode Toggle -->
-<div class="mode-toggle">
-    <button class="mode-btn public-btn" onclick="switchMode('public')">
-        <i class="fas fa-users"></i> Public Site
-    </button>
-    <button class="mode-btn admin-btn" onclick="switchMode('admin')">
-        <i class="fas fa-lock"></i> Admin Portal
-    </button>
+<!-- Admin Login Modal -->
+<div class="login-modal" id="adminLoginModal" onclick="if(event.target === this) closeLoginModal()">
+    <div class="login-modal-content">
+        <h2 style="margin-bottom: 20px;"><i class="fas fa-lock"></i> Admin Login</h2>
+        <form onsubmit="handleAdminLogin(event)">
+            <div class="form-group">
+                <label>Admin Name *</label>
+                <input type="text" class="form-control" id="adminName" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label>Password *</label>
+                <input type="password" class="form-control" id="adminPassword" placeholder="Enter admin password" required>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">
+                <i class="fas fa-sign-in-alt"></i> Login to Admin Portal
+            </button>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: #64748b; text-align: center;">
+                Password: GENIUSPOINTACADEMYPREMIUMCLASS2026-FIRST-EDITION
+            </p>
+        </form>
+        <button class="btn" style="background: #64748b; width: 100%; margin-top: 10px;" onclick="closeLoginModal()">
+            Cancel
+        </button>
+    </div>
 </div>
 
-<!-- Legal Document Modals -->
-<div class="legal-modal" id="privacyPolicyModal">
+<!-- Countdown Banner -->
+<div class="countdown-banner" id="countdownBanner">
+    <div class="countdown-container">
+        <div class="countdown-text">
+            <i class="fas fa-hourglass-half"></i>
+            <span><span id="deadlineLabel">Premium Enrollment</span> Deadline: <strong id="deadlineDate">June 15, 2026</strong></span>
+            <span class="deadline-badge" id="deadlineBadge">HURRY!</span>
+        </div>
+        <div class="countdown-timer" id="countdownTimer">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+        <a href="https://chat.whatsapp.com/EXAMPLEGROUP" class="whatsapp-btn" id="whatsappLink" target="_blank">
+            <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+        </a>
+    </div>
+</div>
+
+<!-- Legal Document Modals (Condensed) -->
+<div class="legal-modal" id="privacyPolicyModal" onclick="if(event.target === this) closeLegalModal('privacyPolicyModal')">
     <div class="legal-modal-content">
         <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
         <p><strong>Last Updated:</strong> April 2026</p>
-        
         <h3>1. Information We Collect</h3>
-        <p>Genius Point Academy collects personal information including but not limited to:</p>
-        <ul>
-            <li>Full name and contact details (email, phone number)</li>
-            <li>Academic institution and level of study</li>
-            <li>Course enrollment and payment information</li>
-            <li>Test scores and academic performance data</li>
-        </ul>
-
+        <p>Genius Point Academy collects personal information including: Full name, contact details, academic institution, course enrollment, payment information, test scores.</p>
         <h3>2. How We Use Your Information</h3>
-        <p>Your information is used exclusively for:</p>
-        <ul>
-            <li>Processing course registrations and payments</li>
-            <li>Providing access to premium classes and materials</li>
-            <li>Sending important updates about schedules and results</li>
-            <li>Generating progress reports and certificates</li>
-            <li>Internal academic record keeping</li>
-        </ul>
-
+        <p>Processing registrations, providing class access, sending updates, generating progress reports.</p>
         <h3>3. Data Protection</h3>
-        <p>We implement industry-standard security measures to protect your personal data. Your information is stored securely and is never sold, rented, or shared with third parties for marketing purposes.</p>
-
-        <h3>4. Email Communications</h3>
-        <p>By registering, you agree to receive essential communications from Genius Point Academy. All official correspondence will come from <strong>academygeniuspoint@gmail.com</strong>.</p>
-
-        <h3>5. Your Rights</h3>
-        <p>You have the right to request access to your personal data, request corrections, or request deletion of your information by contacting us.</p>
-
-        <h3>6. Contact Us</h3>
-        <p>For any privacy concerns, please contact: <strong>academygeniuspoint@gmail.com</strong></p>
-
-        <button class="btn" onclick="closeLegalModal('privacyPolicyModal')" style="margin-top: 20px;">I Understand</button>
+        <p>Industry-standard security measures. Never sold or shared with third parties.</p>
+        <h3>4. Contact</h3>
+        <p><strong>academygeniuspoint@gmail.com</strong></p>
+        <button class="btn" onclick="closeLegalModal('privacyPolicyModal')">I Understand</button>
     </div>
 </div>
 
-<div class="legal-modal" id="termsConditionsModal">
+<div class="legal-modal" id="termsConditionsModal" onclick="if(event.target === this) closeLegalModal('termsConditionsModal')">
     <div class="legal-modal-content">
         <h2><i class="fas fa-file-contract"></i> Terms and Conditions</h2>
         <p><strong>Effective Date:</strong> April 2026</p>
-
-        <h3>1. Acceptance of Terms</h3>
-        <p>By registering for Genius Point Academy's Premium Intensive Program, you agree to be bound by these Terms and Conditions.</p>
-
-        <h3>2. Program Structure</h3>
-        <ul>
-            <li>The program runs for 8 consecutive weeks</li>
-            <li>Classes are held once weekly for a minimum of 3 hours per session</li>
-            <li>Bi-weekly tests and final mock examinations are mandatory components</li>
-            <li>Course outlines will be completed within the 8-week period</li>
-        </ul>
-
-        <h3>3. Enrollment and Payment</h3>
-        <ul>
-            <li>Premium classes are limited to 40 students per course</li>
-            <li>Test-only registration has unlimited capacity</li>
-            <li>Bundle discounts apply when enrolling in both courses at the same level</li>
-            <li>Payment must be completed before access to classes is granted</li>
-            <li>All prices are clearly stated with no hidden fees</li>
-        </ul>
-
+        <h3>1. Program Structure</h3>
+        <p>8 weeks, 3 hours weekly, bi-weekly tests, mock exams.</p>
+        <h3>2. Enrollment</h3>
+        <p>Limited to 40 students per premium course. Test-only unlimited.</p>
+        <h3>3. Payment</h3>
+        <p>Bundle discounts available. No hidden fees.</p>
         <h3>4. Refund Policy</h3>
-        <ul>
-            <li>Full refund available if requested before the first class</li>
-            <li>50% refund if requested before the second class</li>
-            <li>No refunds after the second class has commenced</li>
-            <li>Test-only registration fees are non-refundable</li>
-        </ul>
-
-        <h3>5. Code of Conduct</h3>
-        <p>Students are expected to maintain professional conduct during all sessions. Disruptive behavior may result in removal from the program without refund.</p>
-
-        <h3>6. Intellectual Property</h3>
-        <p>All course materials, including slides, recordings, and assessments, are the intellectual property of Genius Point Academy and may not be distributed without permission.</p>
-
-        <h3>7. Limitation of Liability</h3>
-        <p>Genius Point Academy is not liable for academic outcomes. We guarantee quality instruction but cannot guarantee specific grades or results.</p>
-
-        <button class="btn" onclick="closeLegalModal('termsConditionsModal')" style="margin-top: 20px;">I Accept</button>
+        <p>Full refund before first class, 50% before second class.</p>
+        <button class="btn" onclick="closeLegalModal('termsConditionsModal')">I Accept</button>
     </div>
 </div>
 
-<div class="legal-modal" id="studentAgreementModal">
+<div class="legal-modal" id="studentAgreementModal" onclick="if(event.target === this) closeLegalModal('studentAgreementModal')">
     <div class="legal-modal-content">
         <h2><i class="fas fa-handshake"></i> Student Agreement</h2>
-        <p><strong>Agreement between Genius Point Academy and Student</strong></p>
-
-        <h3>1. Commitment to Learning</h3>
-        <p>I, the undersigned student, agree to:</p>
-        <ul>
-            <li>Attend all scheduled classes punctually</li>
-            <li>Complete all assigned bi-weekly tests and mock examinations</li>
-            <li>Participate actively in class discussions and activities</li>
-            <li>Respect tutors and fellow students at all times</li>
-        </ul>
-
+        <h3>1. Commitment</h3>
+        <p>Attend all classes, complete tests, respect tutors.</p>
         <h3>2. Academic Integrity</h3>
-        <p>I understand that all work submitted must be my own. Cheating, plagiarism, or any form of academic dishonesty will result in immediate dismissal from the program.</p>
-
-        <h3>3. Communication</h3>
-        <p>I agree to maintain open communication with tutors and administration. I will notify the academy in advance if I cannot attend a scheduled class.</p>
-
-        <h3>4. Progress Tracking</h3>
-        <p>I consent to my academic progress being tracked and recorded. This data will be used to provide feedback and improve learning outcomes.</p>
-
-        <h3>5. Acknowledgment of Terms</h3>
-        <p>I acknowledge that I have read and understood the Privacy Policy, Terms and Conditions, and this Student Agreement. I understand that this is a legally binding agreement.</p>
-
-        <h3>6. Non-Extortion Guarantee</h3>
-        <p>Genius Point Academy explicitly guarantees that all fees are transparent and clearly stated upfront. There are no hidden charges, unexpected fees, or coercive practices. Students will never be pressured into additional payments beyond the agreed course fees.</p>
-
-        <button class="btn" onclick="closeLegalModal('studentAgreementModal')" style="margin-top: 20px;">I Agree</button>
+        <p>No cheating or plagiarism.</p>
+        <h3>3. Non-Extortion Guarantee</h3>
+        <p>Transparent pricing, no hidden fees.</p>
+        <button class="btn" onclick="closeLegalModal('studentAgreementModal')">I Agree</button>
     </div>
 </div>
 
-<div class="legal-modal" id="refundPolicyModal">
+<div class="legal-modal" id="refundPolicyModal" onclick="if(event.target === this) closeLegalModal('refundPolicyModal')">
     <div class="legal-modal-content">
-        <h2><i class="fas fa-undo-alt"></i> Refund & Cancellation Policy</h2>
-
-        <h3>1. Premium Class Refunds</h3>
-        <ul>
-            <li><strong>Before First Class:</strong> 100% refund (minus processing fee if applicable)</li>
-            <li><strong>Before Second Class:</strong> 50% refund</li>
-            <li><strong>After Second Class:</strong> No refund available</li>
-        </ul>
-
-        <h3>2. Test-Only Registration</h3>
-        <p>Test-only registration fees are non-refundable once the test schedule has been confirmed.</p>
-
-        <h3>3. Cancellation by Academy</h3>
-        <p>In the rare event that Genius Point Academy cancels a course, registered students will receive a full refund or the option to transfer to another course.</p>
-
-        <h3>4. How to Request a Refund</h3>
-        <p>All refund requests must be submitted in writing to <strong>academygeniuspoint@gmail.com</strong>. Please include your full name, registered course, and reason for cancellation.</p>
-
-        <h3>5. Processing Time</h3>
-        <p>Approved refunds will be processed within 7-10 business days.</p>
-
-        <h3>6. Exceptional Circumstances</h3>
-        <p>Genius Point Academy reserves the right to review refund requests on a case-by-case basis for exceptional circumstances such as medical emergencies (with documentation).</p>
-
-        <button class="btn" onclick="closeLegalModal('refundPolicyModal')" style="margin-top: 20px;">I Understand</button>
+        <h2><i class="fas fa-undo-alt"></i> Refund Policy</h2>
+        <h3>Premium Class Refunds</h3>
+        <p>100% before first class, 50% before second class.</p>
+        <h3>Test-Only</h3>
+        <p>Non-refundable after schedule confirmation.</p>
+        <button class="btn" onclick="closeLegalModal('refundPolicyModal')">I Understand</button>
     </div>
 </div>
 
@@ -595,21 +818,50 @@
         <div class="public-content">
             <div class="logo">
                 <div class="logo-icon">GP</div>
-                <div style="font-weight: 800; font-size: 1.6rem;">Genius<span style="color: #2563eb;">Point</span></div>
+                <div class="logo-text">Genius<span style="color: #2563eb;">Point</span></div>
             </div>
-            <div style="display: flex; gap: 32px;">
-                <a href="#courses" style="text-decoration: none; color: #4a5568; font-weight: 500;">Courses</a>
-                <a href="#timetable" style="text-decoration: none; color: #4a5568; font-weight: 500;">Timetable</a>
-                <a href="#results" style="text-decoration: none; color: #4a5568; font-weight: 500;">Results</a>
-                <a href="#register" style="text-decoration: none; color: #4a5568; font-weight: 500;">Register</a>
+            <div class="nav-links">
+                <a onclick="scrollToSection('courses')">Courses</a>
+                <a onclick="scrollToSection('timetable')">Timetable</a>
+                <a onclick="scrollToSection('results')">Results</a>
+                <a onclick="scrollToSection('register')">Register</a>
             </div>
-            <button class="btn" onclick="document.getElementById('register').scrollIntoView({behavior: 'smooth'})">
+            <button class="btn" onclick="scrollToSection('register')">
                 Enroll Now
             </button>
         </div>
     </nav>
 
     <div class="public-content">
+        <!-- Class Start Info Card -->
+        <div class="class-start-card">
+            <h2 style="margin-bottom: 10px;"><i class="fas fa-calendar-check"></i> Program Schedule</h2>
+            <div class="class-start-grid">
+                <div class="class-start-item">
+                    <i class="fas fa-play-circle"></i>
+                    <h3>Classes Start</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: #2563eb;" id="classStartDate">June 20, 2026</p>
+                    <p style="color: #64748b;">8 Weeks Intensive Program</p>
+                </div>
+                <div class="class-start-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Enrollment Deadline</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: #dc2626;" id="enrollmentDeadline">June 15, 2026</p>
+                    <p style="color: #64748b;">Premium Classes (40 seats max)</p>
+                </div>
+                <div class="class-start-item">
+                    <i class="fas fa-users"></i>
+                    <h3>WhatsApp Community</h3>
+                    <p style="margin-top: 15px;">
+                        <a href="https://chat.whatsapp.com/EXAMPLEGROUP" target="_blank" class="whatsapp-btn" style="display: inline-flex;">
+                            <i class="fab fa-whatsapp"></i> Join Group
+                        </a>
+                    </p>
+                    <p style="color: #64748b; margin-top: 10px;">Get updates & connect</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Welcome Section -->
         <section class="hero">
             <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px;">
@@ -624,7 +876,7 @@
                         Your pathway to academic excellence. Complete your course outlines in just 8 weeks with expert tutors E-simple, Absamie, and O'yemi.
                     </p>
                     <div style="display: flex; gap: 15px;">
-                        <button class="btn" onclick="document.getElementById('register').scrollIntoView({behavior: 'smooth'})">
+                        <button class="btn" onclick="scrollToSection('register')">
                             Start Learning <i class="fas fa-arrow-right"></i>
                         </button>
                         <button class="btn btn-outline" onclick="showLegalModal('privacyPolicyModal')">
@@ -636,11 +888,11 @@
                     <h3 style="margin-bottom: 20px;"><i class="fas fa-chart-pie"></i> Quick Stats</h3>
                     <div id="publicStats">
                         <div style="margin-bottom: 20px;">
-                            <div style="font-size: 2rem; font-weight: 800; color: #2563eb;">120+</div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #2563eb;" id="totalEnrolledStats">0</div>
                             <div style="color: #64748b;">Students Enrolled</div>
                         </div>
                         <div style="margin-bottom: 20px;">
-                            <div style="font-size: 2rem; font-weight: 800; color: #2563eb;">6</div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #2563eb;" id="totalCoursesStats">6</div>
                             <div style="color: #64748b;">Premium Courses</div>
                         </div>
                         <div style="margin-bottom: 20px;">
@@ -672,7 +924,7 @@
         <section id="results">
             <h2 style="font-size: 2rem; margin: 40px 0; font-weight: 700;">📈 Check Your Results</h2>
             <div style="margin-bottom: 20px; display: flex; gap: 15px; align-items: center;">
-                <input type="text" placeholder="Enter your Student ID (e.g., GPA001)" id="resultSearchInput" 
+                <input type="text" placeholder="Enter your Student ID" id="resultSearchInput" 
                        style="padding: 14px 24px; border-radius: 40px; border: 2px solid #e2e8f0; width: 350px; font-size: 1rem;">
                 <button class="btn" onclick="searchResults()">
                     <i class="fas fa-search"></i> View Results
@@ -681,7 +933,7 @@
             <div id="resultsDisplay"></div>
         </section>
 
-        <!-- Registration Section with Legal Agreements -->
+        <!-- Registration Section -->
         <section id="register" class="registration-section">
             <h2 style="font-size: 2rem; margin-bottom: 10px;">📝 Register for Premium Classes</h2>
             <p style="color: #64748b; margin-bottom: 30px;">
@@ -689,7 +941,7 @@
             </p>
 
             <form onsubmit="handlePublicRegistration(event)">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div class="form-row">
                     <div class="form-group">
                         <label>Full Name *</label>
                         <input type="text" class="form-control" id="regName" placeholder="John Doe" required>
@@ -728,131 +980,56 @@
                 <div style="margin-top: 30px;">
                     <h3 style="margin-bottom: 20px;">Select Courses</h3>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                        <label class="agreement-checkbox">
-                            <input type="checkbox" id="courseMTH102"> MTH 102 - Elementary Maths II (₦25,000)
-                        </label>
-                        <label class="agreement-checkbox">
-                            <input type="checkbox" id="courseCHM102"> CHM 102 - General Chemistry II (₦25,000)
-                        </label>
-                        <label class="agreement-checkbox">
-                            <input type="checkbox" id="courseMTS202"> MTS 202 - Numerical Analysis (₦28,000)
-                        </label>
-                        <label class="agreement-checkbox">
-                            <input type="checkbox" id="courseCVE202"> CVE 202 - Strength of Materials (₦28,000)
-                        </label>
-                        <label class="agreement-checkbox">
-                            <input type="checkbox" id="courseMTS316"> MTS 316 - Engineering Maths II (₦30,000)
-                        </label>
-                        <label class="agreement-checkbox">
-                            <input type="checkbox" id="courseEEE302"> EEE 302 - Electronics Engr II (₦30,000)
-                        </label>
+                        <label class="agreement-checkbox"><input type="checkbox" id="courseMTH102" value="MTH 102"> MTH 102 - Elementary Maths II (₦25,000)</label>
+                        <label class="agreement-checkbox"><input type="checkbox" id="courseCHM102" value="CHM 102"> CHM 102 - General Chemistry II (₦25,000)</label>
+                        <label class="agreement-checkbox"><input type="checkbox" id="courseMTS202" value="MTS 202"> MTS 202 - Numerical Analysis (₦28,000)</label>
+                        <label class="agreement-checkbox"><input type="checkbox" id="courseCVE202" value="CVE 202"> CVE 202 - Strength of Materials (₦28,000)</label>
+                        <label class="agreement-checkbox"><input type="checkbox" id="courseMTS316" value="MTS 316"> MTS 316 - Engineering Maths II (₦30,000)</label>
+                        <label class="agreement-checkbox"><input type="checkbox" id="courseEEE302" value="EEE 302"> EEE 302 - Electronics Engr II (₦30,000)</label>
                     </div>
                     <p style="color: #10b981; margin-top: 15px;">
                         <i class="fas fa-tags"></i> Bundle both courses in your level and save 10%!
                     </p>
                 </div>
 
-                <!-- Legal Agreements Section -->
+                <!-- Legal Agreements -->
                 <div class="required-agreements">
-                    <h3 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-                        <i class="fas fa-file-signature"></i> Required Agreements
-                    </h3>
+                    <h3 style="margin-bottom: 20px;"><i class="fas fa-file-signature"></i> Required Agreements</h3>
                     
                     <div style="margin-bottom: 20px;">
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                            <label class="agreement-checkbox" style="margin: 0;">
-                                <input type="checkbox" id="agreePrivacy" required>
-                                <span>I have read and agree to the </span>
-                            </label>
-                            <span class="legal-link" onclick="showLegalModal('privacyPolicyModal')">
-                                Privacy Policy <i class="fas fa-external-link-alt"></i>
-                            </span>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                            <label class="agreement-checkbox"><input type="checkbox" id="agreePrivacy" required> I have read and agree to the </label>
+                            <span class="legal-link" onclick="showLegalModal('privacyPolicyModal')">Privacy Policy <i class="fas fa-external-link-alt"></i></span>
                         </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                            <label class="agreement-checkbox" style="margin: 0;">
-                                <input type="checkbox" id="agreeTerms" required>
-                                <span>I have read and accept the </span>
-                            </label>
-                            <span class="legal-link" onclick="showLegalModal('termsConditionsModal')">
-                                Terms and Conditions <i class="fas fa-external-link-alt"></i>
-                            </span>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                            <label class="agreement-checkbox"><input type="checkbox" id="agreeTerms" required> I have read and accept the </label>
+                            <span class="legal-link" onclick="showLegalModal('termsConditionsModal')">Terms and Conditions <i class="fas fa-external-link-alt"></i></span>
                         </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                            <label class="agreement-checkbox" style="margin: 0;">
-                                <input type="checkbox" id="agreeStudentAgreement" required>
-                                <span>I have read and agree to the </span>
-                            </label>
-                            <span class="legal-link" onclick="showLegalModal('studentAgreementModal')">
-                                Student Agreement <i class="fas fa-external-link-alt"></i>
-                            </span>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                            <label class="agreement-checkbox"><input type="checkbox" id="agreeStudentAgreement" required> I have read and agree to the </label>
+                            <span class="legal-link" onclick="showLegalModal('studentAgreementModal')">Student Agreement <i class="fas fa-external-link-alt"></i></span>
                         </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <label class="agreement-checkbox" style="margin: 0;">
-                                <input type="checkbox" id="agreeRefund">
-                                <span>I understand the </span>
-                            </label>
-                            <span class="legal-link" onclick="showLegalModal('refundPolicyModal')">
-                                Refund Policy <i class="fas fa-external-link-alt"></i>
-                            </span>
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <label class="agreement-checkbox"><input type="checkbox" id="agreeRefund"> I understand the </label>
+                            <span class="legal-link" onclick="showLegalModal('refundPolicyModal')">Refund Policy <i class="fas fa-external-link-alt"></i></span>
                         </div>
-                    </div>
-
-                    <div class="legal-links">
-                        <span class="legal-link" onclick="showLegalModal('privacyPolicyModal')">
-                            <i class="fas fa-shield-alt"></i> Read Privacy Policy
-                        </span>
-                        <span class="legal-link" onclick="showLegalModal('termsConditionsModal')">
-                            <i class="fas fa-gavel"></i> Read Terms & Conditions
-                        </span>
-                        <span class="legal-link" onclick="showLegalModal('studentAgreementModal')">
-                            <i class="fas fa-handshake"></i> Read Student Agreement
-                        </span>
-                        <span class="legal-link" onclick="showLegalModal('refundPolicyModal')">
-                            <i class="fas fa-undo-alt"></i> Read Refund Policy
-                        </span>
                     </div>
 
                     <p style="font-size: 0.9rem; color: #64748b; margin-top: 20px; padding-top: 20px; border-top: 1px solid #fcd34d;">
                         <i class="fas fa-check-circle" style="color: #10b981;"></i> 
-                        <strong>Non-Extortion Guarantee:</strong> Genius Point Academy guarantees transparent pricing with no hidden fees. 
-                        All charges are clearly stated before payment.
+                        <strong>Non-Extortion Guarantee:</strong> Genius Point Academy guarantees transparent pricing with no hidden fees.
                     </p>
-                </div>
-
-                <!-- Additional Agreements -->
-                <div style="margin: 20px 0;">
-                    <label class="agreement-checkbox">
-                        <input type="checkbox" id="agreeCommunications" checked>
-                        I agree to receive important updates and course materials via email
-                    </label>
-                    <label class="agreement-checkbox">
-                        <input type="checkbox" id="agreeDataProcessing" checked>
-                        I consent to the processing of my data for academic purposes as outlined in the Privacy Policy
-                    </label>
-                    <label class="agreement-checkbox">
-                        <input type="checkbox" id="agreeCodeConduct" required>
-                        I agree to abide by the Academy's Code of Conduct during all sessions
-                    </label>
                 </div>
 
                 <button type="submit" class="btn" style="width: 100%; padding: 18px; font-size: 1.1rem; margin-top: 20px;">
                     <i class="fas fa-lock"></i> Complete Registration & Proceed to Payment
                 </button>
-
-                <p style="text-align: center; margin-top: 20px; color: #64748b; font-size: 0.9rem;">
-                    By clicking "Complete Registration", you confirm that you have read and agree to all terms, policies, and agreements listed above.
-                    A confirmation email will be sent to you and <strong>academygeniuspoint@gmail.com</strong>
-                </p>
             </form>
         </section>
 
-        <!-- Footer -->
-        <footer style="background: #0f172a; color: #94a3b8; padding: 50px 0 30px; margin-top: 60px; border-radius: 32px 32px 0 0;">
+        <footer>
             <div style="text-align: center;">
-                <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
                     <span class="legal-link" style="color: #60a5fa;" onclick="showLegalModal('privacyPolicyModal')">Privacy Policy</span>
                     <span style="color: #475569;">|</span>
                     <span class="legal-link" style="color: #60a5fa;" onclick="showLegalModal('termsConditionsModal')">Terms & Conditions</span>
@@ -868,7 +1045,7 @@
     </div>
 </div>
 
-<!-- ==================== ADMIN PORTAL (same as before) ==================== -->
+<!-- ==================== ADMIN PORTAL ==================== -->
 <div id="adminPortal">
     <div class="admin-container">
         <div class="admin-sidebar">
@@ -882,14 +1059,14 @@
                 <div class="admin-nav-item active" onclick="showAdminSection('dashboard')">
                     <i class="fas fa-home"></i> Dashboard
                 </div>
+                <div class="admin-nav-item" onclick="showAdminSection('students')">
+                    <i class="fas fa-users"></i> Student Management
+                </div>
                 <div class="admin-nav-item" onclick="showAdminSection('courses')">
                     <i class="fas fa-book"></i> Manage Courses
                 </div>
                 <div class="admin-nav-item" onclick="showAdminSection('timetable')">
                     <i class="fas fa-calendar"></i> Timetable
-                </div>
-                <div class="admin-nav-item" onclick="showAdminSection('students')">
-                    <i class="fas fa-users"></i> Students
                 </div>
                 <div class="admin-nav-item" onclick="showAdminSection('results')">
                     <i class="fas fa-chart-bar"></i> Results
@@ -897,26 +1074,31 @@
                 <div class="admin-nav-item" onclick="showAdminSection('settings')">
                     <i class="fas fa-cog"></i> Settings
                 </div>
+                <div class="admin-nav-item" onclick="logoutAdmin()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </div>
             </div>
         </div>
 
         <div class="admin-main">
             <div class="admin-header">
                 <h1 id="adminTitle">Dashboard</h1>
-                <div style="display: flex; gap: 20px;">
-                    <span><i class="fas fa-envelope"></i> academygeniuspoint@gmail.com</span>
-                    <span><i class="fas fa-user-shield"></i> Administrator</span>
+                <div class="admin-user-info">
+                    <i class="fas fa-user-circle" style="font-size: 1.5rem; color: #2563eb;"></i>
+                    <span id="currentAdminName">Administrator</span>
+                    <span style="color: #64748b; font-size: 0.8rem;" id="lastLoginTime"></span>
                 </div>
             </div>
 
+            <!-- Dashboard -->
             <div id="adminDashboard">
                 <div class="welcome-card">
-                    <h2>Welcome back, Administrator! 👋</h2>
-                    <p>Manage courses, timetables, student results, and track academy performance.</p>
+                    <h2>Welcome back, <span id="dashboardAdminName">Administrator</span>! 👋</h2>
+                    <p>Manage students, courses, timetables, results, and track academy performance.</p>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <h3 id="totalStudents">142</h3>
+                        <h3 id="totalStudents">0</h3>
                         <p>Total Students</p>
                     </div>
                     <div class="stat-card">
@@ -932,38 +1114,72 @@
                         <p>Avg Performance</p>
                     </div>
                 </div>
+
+                <!-- Activity Log -->
+                <div class="activity-log">
+                    <h3 style="margin-bottom: 20px;"><i class="fas fa-history"></i> Recent Activity Log</h3>
+                    <div id="activityLogContainer"></div>
+                </div>
+            </div>
+
+            <!-- Student Management -->
+            <div id="adminStudents" style="display: none;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <h2>Student Management</h2>
+                    <button class="btn" onclick="openStudentModal()">
+                        <i class="fas fa-plus"></i> Add New Student
+                    </button>
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" id="studentSearchInput" placeholder="Search by name, email, or ID..." onkeyup="filterStudents()">
+                    <button class="btn btn-outline" onclick="filterStudents()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+
                 <div class="data-table">
-                    <h3>Recent Registrations</h3>
-                    <table style="width: 100%;">
-                        <tr><td>John Doe</td><td>MTH 102</td><td>Premium</td><td>2 minutes ago</td></tr>
-                        <tr><td>Jane Smith</td><td>CHM 102, MTH 102</td><td>Premium Bundle</td><td>15 minutes ago</td></tr>
-                        <tr><td>Mike Johnson</td><td>MTS 202</td><td>Test Only</td><td>1 hour ago</td></tr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Level</th>
+                                <th>Type</th>
+                                <th>Courses</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody"></tbody>
                     </table>
                 </div>
             </div>
 
+            <!-- Courses Management -->
             <div id="adminCourses" style="display: none;">
                 <button class="btn" onclick="openCourseModal()" style="margin-bottom: 20px;">
                     <i class="fas fa-plus"></i> Add New Course
                 </button>
                 <div class="data-table">
-                    <table style="width: 100%;">
+                    <table>
                         <thead>
                             <tr><th>Course Code</th><th>Course Name</th><th>Level</th><th>Price</th><th>Capacity</th><th>Enrolled</th><th>Actions</th></tr>
                         </thead>
-                        <tbody id="courseTableBody">
-                            <tr><td>MTH 102</td><td>Elementary Mathematics II</td><td>100</td><td>₦25,000</td><td>40</td><td>32</td><td><button class="btn-sm btn-edit"><i class="fas fa-edit"></i></button></td></tr>
-                        </tbody>
+                        <tbody id="courseTableBody"></tbody>
                     </table>
                 </div>
             </div>
 
+            <!-- Timetable Management -->
             <div id="adminTimetable" style="display: none;">
                 <button class="btn" onclick="openTimetableModal()" style="margin-bottom: 20px;">
                     <i class="fas fa-plus"></i> Add Time Slot
                 </button>
                 <div class="data-table">
-                    <table style="width: 100%;">
+                    <table>
                         <thead>
                             <tr><th>Day</th><th>Time</th><th>Course</th><th>Tutor</th><th>Venue</th><th>Actions</th></tr>
                         </thead>
@@ -972,12 +1188,13 @@
                 </div>
             </div>
 
+            <!-- Results Management -->
             <div id="adminResults" style="display: none;">
                 <button class="btn" onclick="openResultModal()" style="margin-bottom: 20px;">
                     <i class="fas fa-plus"></i> Upload Results
                 </button>
                 <div class="data-table">
-                    <table style="width: 100%;">
+                    <table>
                         <thead>
                             <tr><th>Student ID</th><th>Name</th><th>Course</th><th>Test 1</th><th>Test 2</th><th>Exam</th><th>Total</th><th>Grade</th><th>Actions</th></tr>
                         </thead>
@@ -985,38 +1202,166 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Settings -->
+            <div id="adminSettings" style="display: none;">
+                <div class="data-table">
+                    <h3 style="margin-bottom: 20px;">Platform Settings</h3>
+                    <form onsubmit="saveSettings(event)">
+                        <div class="form-group">
+                            <label>Class Start Date</label>
+                            <input type="date" class="form-control" id="settingClassStart" value="2026-06-20">
+                        </div>
+                        <div class="form-group">
+                            <label>Enrollment Deadline</label>
+                            <input type="date" class="form-control" id="settingDeadline" value="2026-06-15">
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Group Link</label>
+                            <input type="url" class="form-control" id="settingWhatsApp" value="https://chat.whatsapp.com/EXAMPLEGROUP">
+                        </div>
+                        <div class="form-group">
+                            <label>Academy Email</label>
+                            <input type="email" class="form-control" id="settingEmail" value="academygeniuspoint@gmail.com">
+                        </div>
+                        <button type="submit" class="btn">Save Settings</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Admin Modals (condensed for brevity) -->
-<div class="modal-admin" id="courseModal">
+<!-- Student Modal -->
+<div class="modal-admin" id="studentModal" onclick="if(event.target === this) closeModal('studentModal')">
     <div class="modal-content-admin">
-        <h2>Add/Edit Course</h2>
+        <h2 id="studentModalTitle">Add New Student</h2>
+        <form onsubmit="saveStudent(event)">
+            <input type="hidden" id="editStudentIndex" value="-1">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" class="form-control" id="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" class="form-control" id="studentEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <input type="tel" class="form-control" id="studentPhone" required>
+                </div>
+                <div class="form-group">
+                    <label>Institution</label>
+                    <input type="text" class="form-control" id="studentInstitution">
+                </div>
+                <div class="form-group">
+                    <label>Level *</label>
+                    <select class="form-control" id="studentLevel" required>
+                        <option value="">Select Level</option>
+                        <option value="100">100 Level</option>
+                        <option value="200">200 Level</option>
+                        <option value="300">300 Level</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Registration Type *</label>
+                    <select class="form-control" id="studentType" required>
+                        <option value="premium">Premium Class</option>
+                        <option value="test">Test Only</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Enrolled Courses</label>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;">
+                    <label class="agreement-checkbox"><input type="checkbox" value="MTH 102"> MTH 102</label>
+                    <label class="agreement-checkbox"><input type="checkbox" value="CHM 102"> CHM 102</label>
+                    <label class="agreement-checkbox"><input type="checkbox" value="MTS 202"> MTS 202</label>
+                    <label class="agreement-checkbox"><input type="checkbox" value="CVE 202"> CVE 202</label>
+                    <label class="agreement-checkbox"><input type="checkbox" value="MTS 316"> MTS 316</label>
+                    <label class="agreement-checkbox"><input type="checkbox" value="EEE 302"> EEE 302</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Payment Status</label>
+                <select class="form-control" id="studentPaymentStatus">
+                    <option value="pending">Pending</option>
+                    <option value="paid">Paid</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <select class="form-control" id="studentStatus">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="graduated">Graduated</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Save Student</button>
+            <button type="button" class="btn" style="background: #64748b;" onclick="closeModal('studentModal')">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<!-- Course Modal -->
+<div class="modal-admin" id="courseModal" onclick="if(event.target === this) closeModal('courseModal')">
+    <div class="modal-content-admin">
+        <h2>Add New Course</h2>
         <form onsubmit="saveCourse(event)">
-            <div class="form-group"><label>Course Code</label><input type="text" class="form-control" required></div>
-            <div class="form-group"><label>Course Name</label><input type="text" class="form-control" required></div>
-            <div class="form-group"><label>Level</label><select class="form-control"><option>100</option><option>200</option><option>300</option></select></div>
-            <div class="form-group"><label>Price (₦)</label><input type="number" class="form-control" required></div>
-            <div class="form-group"><label>Maximum Students</label><input type="number" class="form-control" value="40"></div>
+            <div class="form-group"><label>Course Code</label><input type="text" class="form-control" id="courseCode" required></div>
+            <div class="form-group"><label>Course Name</label><input type="text" class="form-control" id="courseName" required></div>
+            <div class="form-group"><label>Level</label><select class="form-control" id="courseLevel"><option value="100">100</option><option value="200">200</option><option value="300">300</option></select></div>
+            <div class="form-group"><label>Price (₦)</label><input type="number" class="form-control" id="coursePrice" required></div>
+            <div class="form-group"><label>Maximum Students</label><input type="number" class="form-control" id="courseCapacity" value="40"></div>
             <button type="submit" class="btn">Save Course</button>
             <button type="button" class="btn" style="background: #64748b;" onclick="closeModal('courseModal')">Cancel</button>
         </form>
     </div>
 </div>
 
+<!-- Timetable Modal -->
+<div class="modal-admin" id="timetableModal" onclick="if(event.target === this) closeModal('timetableModal')">
+    <div class="modal-content-admin">
+        <h2>Schedule Class</h2>
+        <form onsubmit="saveTimetable(event)">
+            <div class="form-group"><label>Day</label><select class="form-control" id="slotDay"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option></select></div>
+            <div class="form-group"><label>Time</label><input type="text" class="form-control" id="slotTime" placeholder="10:00 AM - 1:00 PM" required></div>
+            <div class="form-group"><label>Course</label><select class="form-control" id="slotCourse"></select></div>
+            <div class="form-group"><label>Tutor</label><select class="form-control" id="slotTutor"><option>E-simple</option><option>Absamie</option><option>O'yemi</option></select></div>
+            <div class="form-group"><label>Venue</label><input type="text" class="form-control" id="slotVenue" placeholder="Room 101"></div>
+            <button type="submit" class="btn">Save Schedule</button>
+            <button type="button" class="btn" style="background: #64748b;" onclick="closeModal('timetableModal')">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<!-- Result Modal -->
+<div class="modal-admin" id="resultModal" onclick="if(event.target === this) closeModal('resultModal')">
+    <div class="modal-content-admin">
+        <h2>Enter Student Result</h2>
+        <form onsubmit="saveResult(event)">
+            <div class="form-group"><label>Student</label><select class="form-control" id="resultStudent"></select></div>
+            <div class="form-group"><label>Course</label><select class="form-control" id="resultCourse"></select></div>
+            <div class="form-group"><label>Test 1 (20%)</label><input type="number" class="form-control" id="test1Score" min="0" max="20" required></div>
+            <div class="form-group"><label>Test 2 (20%)</label><input type="number" class="form-control" id="test2Score" min="0" max="20" required></div>
+            <div class="form-group"><label>Exam (60%)</label><input type="number" class="form-control" id="examScore" min="0" max="60" required></div>
+            <button type="submit" class="btn">Save Result</button>
+            <button type="button" class="btn" style="background: #64748b;" onclick="closeModal('resultModal')">Cancel</button>
+        </form>
+    </div>
+</div>
+
 <script>
-    // Legal Modal Functions
-    function showLegalModal(modalId) {
-        document.getElementById(modalId).style.display = 'flex';
-    }
-
-    function closeLegalModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-    }
-
-    // Data Store
+    // ==================== DATA STORE ====================
     let academyData = {
+        settings: {
+            classStartDate: '2026-06-20',
+            enrollmentDeadline: '2026-06-15',
+            whatsappLink: 'https://chat.whatsapp.com/EXAMPLEGROUP',
+            academyEmail: 'academygeniuspoint@gmail.com'
+        },
         courses: [
             { code: 'MTH 102', name: 'Elementary Mathematics II', level: '100', price: 25000, capacity: 40, enrolled: 32 },
             { code: 'CHM 102', name: 'General Chemistry II', level: '100', price: 25000, capacity: 40, enrolled: 28 },
@@ -1025,45 +1370,160 @@
             { code: 'MTS 316', name: 'Engineering Mathematics II', level: '300', price: 30000, capacity: 40, enrolled: 25 },
             { code: 'EEE 302', name: 'Electronics Engineering II', level: '300', price: 30000, capacity: 40, enrolled: 22 }
         ],
+        students: [
+            { id: 'GPA001', name: 'John Doe', email: 'john@example.com', phone: '08012345678', institution: 'UNILAG', level: '100', type: 'premium', courses: ['MTH 102'], paymentStatus: 'paid', status: 'active', registeredDate: '2026-04-01' },
+            { id: 'GPA002', name: 'Jane Smith', email: 'jane@example.com', phone: '08087654321', institution: 'OAU', level: '200', type: 'premium', courses: ['CHM 102', 'MTH 102'], paymentStatus: 'paid', status: 'active', registeredDate: '2026-04-02' },
+            { id: 'GPA003', name: 'Mike Johnson', email: 'mike@example.com', phone: '08011223344', institution: 'UI', level: '300', type: 'test', courses: ['MTS 202'], paymentStatus: 'pending', status: 'active', registeredDate: '2026-04-03' }
+        ],
         timetable: [
             { day: 'Monday', time: '10:00 AM - 1:00 PM', course: 'MTH 102', tutor: 'E-simple', venue: 'Room 201' },
             { day: 'Tuesday', time: '2:00 PM - 5:00 PM', course: 'CHM 102', tutor: 'O\'yemi', venue: 'Lab 3' },
-            { day: 'Wednesday', time: '10:00 AM - 1:00 PM', course: 'MTS 202', tutor: 'Absamie', venue: 'Room 305' },
-            { day: 'Thursday', time: '2:00 PM - 5:00 PM', course: 'CVE 202', tutor: 'Absamie', venue: 'Room 210' },
-            { day: 'Friday', time: '9:00 AM - 12:00 PM', course: 'MTS 316', tutor: 'E-simple', venue: 'Room 102' },
-            { day: 'Saturday', time: '10:00 AM - 1:00 PM', course: 'EEE 302', tutor: 'O\'yemi', venue: 'Electronics Lab' }
+            { day: 'Wednesday', time: '10:00 AM - 1:00 PM', course: 'MTS 202', tutor: 'Absamie', venue: 'Room 305' }
         ],
         results: [
-            { studentId: 'GPA001', name: 'John Doe', course: 'MTH 102', test1: 18, test2: 16, exam: 52, total: 86, grade: 'A' },
-            { studentId: 'GPA002', name: 'Jane Smith', course: 'CHM 102', test1: 15, test2: 17, exam: 48, total: 80, grade: 'A' },
-            { studentId: 'GPA003', name: 'Mike Johnson', course: 'MTS 202', test1: 14, test2: 15, exam: 42, total: 71, grade: 'B' }
-        ]
+            { studentId: 'GPA001', studentName: 'John Doe', course: 'MTH 102', test1: 18, test2: 16, exam: 52, total: 86, grade: 'A' }
+        ],
+        activityLog: [],
+        currentAdmin: null
     };
 
-    // Initialize
-    window.onload = function() {
-        loadPublicContent();
-        loadTimetableTable();
-        loadResultsTable();
-    };
+    // Load from localStorage
+    if(localStorage.getItem('gpaData')) {
+        academyData = JSON.parse(localStorage.getItem('gpaData'));
+    }
 
-    // Mode Switching
+    // Save to localStorage
+    function saveData() {
+        localStorage.setItem('gpaData', JSON.stringify(academyData));
+    }
+
+    // Add activity log
+    function addActivity(action, details) {
+        const activity = {
+            action,
+            details,
+            admin: academyData.currentAdmin?.name || 'System',
+            timestamp: new Date().toLocaleString()
+        };
+        academyData.activityLog.unshift(activity);
+        if (academyData.activityLog.length > 20) academyData.activityLog.pop();
+        saveData();
+        if (document.getElementById('adminPortal').style.display === 'block') {
+            loadActivityLog();
+        }
+    }
+
+    // ==================== COUNTDOWN TIMER ====================
+    function updateCountdown() {
+        const deadline = new Date(academyData.settings.enrollmentDeadline + 'T23:59:59');
+        const now = new Date();
+        const diff = deadline - now;
+
+        if (diff > 0) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        } else {
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            document.getElementById('deadlineBadge').textContent = 'ENDED';
+        }
+    }
+
+    // Update settings display
+    function updateSettingsDisplay() {
+        document.getElementById('classStartDate').textContent = new Date(academyData.settings.classStartDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        document.getElementById('enrollmentDeadline').textContent = new Date(academyData.settings.enrollmentDeadline).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        document.getElementById('deadlineDate').textContent = new Date(academyData.settings.enrollmentDeadline).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        document.getElementById('whatsappLink').href = academyData.settings.whatsappLink;
+    }
+
+    // ==================== MODAL FUNCTIONS ====================
+    function showLegalModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+    }
+
+    function closeLegalModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    function openLoginModal() {
+        document.getElementById('adminLoginModal').style.display = 'flex';
+    }
+
+    function closeLoginModal() {
+        document.getElementById('adminLoginModal').style.display = 'none';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    // ==================== ADMIN LOGIN ====================
+    function handleAdminLogin(e) {
+        e.preventDefault();
+        const name = document.getElementById('adminName').value;
+        const password = document.getElementById('adminPassword').value;
+        const correctPassword = 'GENIUSPOINTACADEMYPREMIUMCLASS2026-FIRST-EDITION';
+
+        if (password === correctPassword) {
+            academyData.currentAdmin = {
+                name: name,
+                loginTime: new Date().toLocaleString()
+            };
+            addActivity('Admin Login', `${name} logged into admin portal`);
+            
+            document.getElementById('currentAdminName').textContent = name;
+            document.getElementById('dashboardAdminName').textContent = name;
+            document.getElementById('lastLoginTime').textContent = new Date().toLocaleTimeString();
+            
+            closeLoginModal();
+            document.getElementById('publicSite').style.display = 'none';
+            document.getElementById('adminPortal').style.display = 'block';
+            
+            loadAdminDashboard();
+            loadActivityLog();
+        } else {
+            alert('Invalid password!');
+        }
+    }
+
+    function logoutAdmin() {
+        addActivity('Admin Logout', `${academyData.currentAdmin?.name} logged out`);
+        academyData.currentAdmin = null;
+        document.getElementById('adminPortal').style.display = 'none';
+        document.getElementById('publicSite').style.display = 'block';
+        alert('Logged out successfully');
+    }
+
+    // ==================== MODE SWITCHING ====================
     function switchMode(mode) {
         if (mode === 'public') {
             document.getElementById('publicSite').style.display = 'block';
             document.getElementById('adminPortal').style.display = 'none';
         } else {
-            const password = prompt('Enter admin password:');
-            if (password === 'admin123' || password === 'gpa2026') {
-                document.getElementById('publicSite').style.display = 'none';
-                document.getElementById('adminPortal').style.display = 'block';
-            } else {
-                alert('Invalid password');
-            }
+            openLoginModal();
         }
     }
 
+    // ==================== SCROLL FUNCTION ====================
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ==================== LOAD PUBLIC CONTENT ====================
     function loadPublicContent() {
+        updateSettingsDisplay();
+        
+        // Display Courses
         let coursesHtml = '';
         ['100', '200', '300'].forEach(level => {
             const levelCourses = academyData.courses.filter(c => c.level === level);
@@ -1073,32 +1533,30 @@
                     <div style="padding: 16px 0; border-bottom: 1px solid #eef2f6;">
                         <div style="font-weight: 800; font-size: 1.2rem;">${course.code}</div>
                         <div style="color: #64748b; margin: 5px 0;">${course.name}</div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-weight: 700; color: #1e293b;">₦${course.price.toLocaleString()}</span>
-                            <span style="color: #64748b; font-size: 0.9rem;">${course.enrolled}/${course.capacity} enrolled</span>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="font-weight: 700;">₦${course.price.toLocaleString()}</span>
+                            <span style="color: #64748b;">${course.enrolled}/${course.capacity}</span>
                         </div>
                     </div>
                 `;
             });
-            if (level === '100') {
-                coursesHtml += `<div style="margin-top: 20px; background: #f0fdf4; padding: 15px; border-radius: 12px; color: #15803d;"><i class="fas fa-tags"></i> Bundle both: ₦45,000 (Save 10%)</div>`;
-            } else if (level === '200') {
-                coursesHtml += `<div style="margin-top: 20px; background: #f0fdf4; padding: 15px; border-radius: 12px; color: #15803d;"><i class="fas fa-tags"></i> Bundle both: ₦50,400 (Save 10%)</div>`;
-            } else {
-                coursesHtml += `<div style="margin-top: 20px; background: #f0fdf4; padding: 15px; border-radius: 12px; color: #15803d;"><i class="fas fa-tags"></i> Bundle both: ₦54,000 (Save 10%)</div>`;
-            }
             coursesHtml += '</div>';
         });
         document.getElementById('courseDisplay').innerHTML = coursesHtml;
 
-        let timetableHtml = '<table style="width: 100%; border-collapse: collapse;"><thead><tr style="background: #f8fafc;"><th style="padding: 15px; text-align: left;">Day</th><th style="padding: 15px; text-align: left;">Time</th><th style="padding: 15px; text-align: left;">Course</th><th style="padding: 15px; text-align: left;">Tutor</th><th style="padding: 15px; text-align: left;">Venue</th></tr></thead><tbody>';
+        // Display Timetable
+        let timetableHtml = '<table style="width: 100%;"><thead><tr style="background: #f8fafc;"><th>Day</th><th>Time</th><th>Course</th><th>Tutor</th><th>Venue</th></tr></thead><tbody>';
         academyData.timetable.forEach(slot => {
-            timetableHtml += `<tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 15px;">${slot.day}</td><td style="padding: 15px;">${slot.time}</td><td style="padding: 15px; font-weight: 600;">${slot.course}</td><td style="padding: 15px;">${slot.tutor}</td><td style="padding: 15px;">${slot.venue}</td></tr>`;
+            timetableHtml += `<tr><td>${slot.day}</td><td>${slot.time}</td><td><strong>${slot.course}</strong></td><td>${slot.tutor}</td><td>${slot.venue}</td></tr>`;
         });
         timetableHtml += '</tbody></table>';
         document.getElementById('timetableDisplay').innerHTML = timetableHtml;
+
+        // Update Stats
+        document.getElementById('totalEnrolledStats').textContent = academyData.students.length;
     }
 
+    // ==================== SEARCH RESULTS ====================
     function searchResults() {
         const searchId = document.getElementById('resultSearchInput').value.toUpperCase().trim();
         const studentResults = academyData.results.filter(r => r.studentId.toUpperCase().includes(searchId));
@@ -1107,14 +1565,14 @@
             studentResults.forEach(r => {
                 html += `
                     <div class="result-card">
-                        <h3 style="margin-bottom: 10px;">${r.name} (${r.studentId})</h3>
-                        <p style="margin-bottom: 10px;"><strong>${r.course}</strong></p>
+                        <h3>${r.studentName} (${r.studentId})</h3>
+                        <p><strong>${r.course}</strong></p>
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0;">
                             <div style="text-align: center; padding: 10px; background: #f8fafc; border-radius: 8px;">Test 1: ${r.test1}/20</div>
                             <div style="text-align: center; padding: 10px; background: #f8fafc; border-radius: 8px;">Test 2: ${r.test2}/20</div>
                             <div style="text-align: center; padding: 10px; background: #f8fafc; border-radius: 8px;">Exam: ${r.exam}/60</div>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; justify-content: space-between;">
                             <span style="font-size: 1.2rem; font-weight: 700;">Total: ${r.total}%</span>
                             <span class="grade-badge grade-${r.grade.toLowerCase()}">Grade: ${r.grade}</span>
                         </div>
@@ -1122,80 +1580,480 @@
                 `;
             });
         } else {
-            html = '<p style="color: #64748b; text-align: center; padding: 40px;">No results found. Please check your Student ID or contact academygeniuspoint@gmail.com</p>';
+            html = '<p style="color: #64748b; text-align: center; padding: 40px;">No results found.</p>';
         }
         document.getElementById('resultsDisplay').innerHTML = html;
     }
 
+    // ==================== HANDLE REGISTRATION ====================
     function handlePublicRegistration(e) {
         e.preventDefault();
         
         if (!document.getElementById('agreePrivacy').checked || 
             !document.getElementById('agreeTerms').checked || 
-            !document.getElementById('agreeStudentAgreement').checked ||
-            !document.getElementById('agreeCodeConduct').checked) {
-            alert('Please read and agree to all required policies and agreements before proceeding.');
+            !document.getElementById('agreeStudentAgreement').checked) {
+            alert('Please agree to all required policies.');
             return;
         }
 
         const name = document.getElementById('regName').value;
         const email = document.getElementById('regEmail').value;
-        const uniqueCode = 'GPA-' + (document.getElementById('regType').value === 'premium' ? 'PRE-' : 'TST-') + Math.random().toString(36).substring(2, 8).toUpperCase();
+        const phone = document.getElementById('regPhone').value;
+        const institution = document.getElementById('regInstitution').value;
+        const level = document.getElementById('regLevel').value;
+        const type = document.getElementById('regType').value;
         
-        alert(`✅ Registration Successful!\n\nThank you, ${name}!\nYour unique code: ${uniqueCode}\n\nConfirmation emails have been sent to:\n- ${email}\n- academygeniuspoint@gmail.com\n\nYou have agreed to all terms and policies.`);
+        const selectedCourses = [];
+        document.querySelectorAll('#register input[type=checkbox]:checked').forEach(cb => {
+            if (cb.value) selectedCourses.push(cb.value);
+        });
+
+        const studentId = 'GPA' + String(academyData.students.length + 1).padStart(3, '0');
         
+        const newStudent = {
+            id: studentId,
+            name,
+            email,
+            phone,
+            institution,
+            level,
+            type,
+            courses: selectedCourses,
+            paymentStatus: 'pending',
+            status: 'active',
+            registeredDate: new Date().toISOString().split('T')[0]
+        };
+        
+        academyData.students.push(newStudent);
+        addActivity('New Registration', `${name} registered for ${selectedCourses.join(', ') || 'no courses'}`);
+        saveData();
+        
+        alert(`✅ Registration Successful!\n\nThank you, ${name}!\nYour Student ID: ${studentId}\n\nConfirmation sent to ${email} and academygeniuspoint@gmail.com`);
         e.target.reset();
+        loadPublicContent();
     }
 
+    // ==================== ADMIN DASHBOARD ====================
+    function loadAdminDashboard() {
+        document.getElementById('totalStudents').textContent = academyData.students.length;
+        document.getElementById('activeCourses').textContent = academyData.courses.length;
+        
+        const avgTotal = academyData.results.reduce((sum, r) => sum + r.total, 0) / (academyData.results.length || 1);
+        document.getElementById('avgPerformance').textContent = Math.round(avgTotal) + '%';
+    }
+
+    function loadActivityLog() {
+        const container = document.getElementById('activityLogContainer');
+        if (!container) return;
+        
+        let html = '';
+        academyData.activityLog.slice(0, 10).forEach(activity => {
+            html += `
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-${getActivityIcon(activity.action)}"></i></div>
+                    <div class="activity-details">
+                        <div class="activity-action">${activity.action}</div>
+                        <div class="activity-meta">${activity.details} - by ${activity.admin} on ${activity.timestamp}</div>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html || '<p>No recent activity</p>';
+    }
+
+    function getActivityIcon(action) {
+        if (action.includes('Login')) return 'sign-in-alt';
+        if (action.includes('Registration')) return 'user-plus';
+        if (action.includes('Course')) return 'book';
+        if (action.includes('Result')) return 'chart-bar';
+        return 'history';
+    }
+
+    // ==================== STUDENT MANAGEMENT ====================
+    function loadStudentTable() {
+        const tbody = document.getElementById('studentTableBody');
+        let html = '';
+        academyData.students.forEach((student, index) => {
+            const statusClass = student.paymentStatus === 'paid' ? 'status-active' : 
+                               student.paymentStatus === 'pending' ? 'status-pending' : 'status-completed';
+            html += `<tr>
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td>${student.email}</td>
+                <td>${student.phone}</td>
+                <td>${student.level}</td>
+                <td>${student.type}</td>
+                <td>${student.courses.join(', ')}</td>
+                <td><span class="status-badge ${statusClass}">${student.paymentStatus}</span></td>
+                <td>
+                    <button class="btn-sm btn-view" onclick="viewStudent(${index})"><i class="fas fa-eye"></i></button>
+                    <button class="btn-sm btn-edit" onclick="editStudent(${index})"><i class="fas fa-edit"></i></button>
+                    <button class="btn-sm btn-delete" onclick="deleteStudent(${index})"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>`;
+        });
+        tbody.innerHTML = html;
+    }
+
+    function openStudentModal() {
+        document.getElementById('studentModalTitle').textContent = 'Add New Student';
+        document.getElementById('editStudentIndex').value = '-1';
+        document.getElementById('studentName').value = '';
+        document.getElementById('studentEmail').value = '';
+        document.getElementById('studentPhone').value = '';
+        document.getElementById('studentInstitution').value = '';
+        document.getElementById('studentLevel').value = '';
+        document.getElementById('studentType').value = 'premium';
+        document.getElementById('studentPaymentStatus').value = 'pending';
+        document.getElementById('studentStatus').value = 'active';
+        document.querySelectorAll('#studentModal input[type=checkbox]').forEach(cb => cb.checked = false);
+        document.getElementById('studentModal').style.display = 'flex';
+    }
+
+    function editStudent(index) {
+        const student = academyData.students[index];
+        document.getElementById('studentModalTitle').textContent = 'Edit Student';
+        document.getElementById('editStudentIndex').value = index;
+        document.getElementById('studentName').value = student.name;
+        document.getElementById('studentEmail').value = student.email;
+        document.getElementById('studentPhone').value = student.phone;
+        document.getElementById('studentInstitution').value = student.institution || '';
+        document.getElementById('studentLevel').value = student.level;
+        document.getElementById('studentType').value = student.type;
+        document.getElementById('studentPaymentStatus').value = student.paymentStatus;
+        document.getElementById('studentStatus').value = student.status;
+        
+        document.querySelectorAll('#studentModal input[type=checkbox]').forEach(cb => {
+            cb.checked = student.courses.includes(cb.value);
+        });
+        
+        document.getElementById('studentModal').style.display = 'flex';
+    }
+
+    function saveStudent(e) {
+        e.preventDefault();
+        const index = document.getElementById('editStudentIndex').value;
+        
+        const selectedCourses = [];
+        document.querySelectorAll('#studentModal input[type=checkbox]:checked').forEach(cb => {
+            selectedCourses.push(cb.value);
+        });
+
+        const studentData = {
+            id: index === '-1' ? 'GPA' + String(academyData.students.length + 1).padStart(3, '0') : academyData.students[index].id,
+            name: document.getElementById('studentName').value,
+            email: document.getElementById('studentEmail').value,
+            phone: document.getElementById('studentPhone').value,
+            institution: document.getElementById('studentInstitution').value,
+            level: document.getElementById('studentLevel').value,
+            type: document.getElementById('studentType').value,
+            courses: selectedCourses,
+            paymentStatus: document.getElementById('studentPaymentStatus').value,
+            status: document.getElementById('studentStatus').value,
+            registeredDate: index === '-1' ? new Date().toISOString().split('T')[0] : academyData.students[index].registeredDate
+        };
+
+        if (index === '-1') {
+            academyData.students.push(studentData);
+            addActivity('Student Added', `${studentData.name} (${studentData.id}) added`);
+        } else {
+            academyData.students[index] = studentData;
+            addActivity('Student Updated', `${studentData.name} (${studentData.id}) updated`);
+        }
+
+        saveData();
+        closeModal('studentModal');
+        loadStudentTable();
+        loadPublicContent();
+        loadAdminDashboard();
+    }
+
+    function deleteStudent(index) {
+        if (confirm('Are you sure you want to delete this student?')) {
+            const student = academyData.students[index];
+            addActivity('Student Deleted', `${student.name} (${student.id}) deleted`);
+            academyData.students.splice(index, 1);
+            saveData();
+            loadStudentTable();
+            loadPublicContent();
+            loadAdminDashboard();
+        }
+    }
+
+    function viewStudent(index) {
+        const student = academyData.students[index];
+        alert(`Student Details:\n\nID: ${student.id}\nName: ${student.name}\nEmail: ${student.email}\nPhone: ${student.phone}\nLevel: ${student.level}\nType: ${student.type}\nCourses: ${student.courses.join(', ')}\nPayment: ${student.paymentStatus}\nStatus: ${student.status}\nRegistered: ${student.registeredDate}`);
+    }
+
+    function filterStudents() {
+        const searchTerm = document.getElementById('studentSearchInput').value.toLowerCase();
+        const tbody = document.getElementById('studentTableBody');
+        let html = '';
+        academyData.students.filter(s => 
+            s.name.toLowerCase().includes(searchTerm) ||
+            s.email.toLowerCase().includes(searchTerm) ||
+            s.id.toLowerCase().includes(searchTerm)
+        ).forEach((student, index) => {
+            const originalIndex = academyData.students.indexOf(student);
+            const statusClass = student.paymentStatus === 'paid' ? 'status-active' : 
+                               student.paymentStatus === 'pending' ? 'status-pending' : 'status-completed';
+            html += `<tr>
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td>${student.email}</td>
+                <td>${student.phone}</td>
+                <td>${student.level}</td>
+                <td>${student.type}</td>
+                <td>${student.courses.join(', ')}</td>
+                <td><span class="status-badge ${statusClass}">${student.paymentStatus}</span></td>
+                <td>
+                    <button class="btn-sm btn-view" onclick="viewStudent(${originalIndex})"><i class="fas fa-eye"></i></button>
+                    <button class="btn-sm btn-edit" onclick="editStudent(${originalIndex})"><i class="fas fa-edit"></i></button>
+                    <button class="btn-sm btn-delete" onclick="deleteStudent(${originalIndex})"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>`;
+        });
+        tbody.innerHTML = html;
+    }
+
+    // ==================== COURSE MANAGEMENT ====================
+    function loadCourseTable() {
+        const tbody = document.getElementById('courseTableBody');
+        let html = '';
+        academyData.courses.forEach((course, index) => {
+            html += `<tr>
+                <td>${course.code}</td><td>${course.name}</td><td>${course.level}</td>
+                <td>₦${course.price}</td><td>${course.capacity}</td><td>${course.enrolled}</td>
+                <td>
+                    <button class="btn-sm btn-edit" onclick="editCourse(${index})"><i class="fas fa-edit"></i></button>
+                    <button class="btn-sm btn-delete" onclick="deleteCourse(${index})"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>`;
+        });
+        tbody.innerHTML = html;
+    }
+
+    function openCourseModal() {
+        document.getElementById('courseCode').value = '';
+        document.getElementById('courseName').value = '';
+        document.getElementById('coursePrice').value = '';
+        document.getElementById('courseModal').style.display = 'flex';
+    }
+
+    function saveCourse(e) {
+        e.preventDefault();
+        const newCourse = {
+            code: document.getElementById('courseCode').value,
+            name: document.getElementById('courseName').value,
+            level: document.getElementById('courseLevel').value,
+            price: parseInt(document.getElementById('coursePrice').value),
+            capacity: parseInt(document.getElementById('courseCapacity').value),
+            enrolled: 0
+        };
+        academyData.courses.push(newCourse);
+        addActivity('Course Added', `${newCourse.code} - ${newCourse.name} added`);
+        saveData();
+        closeModal('courseModal');
+        loadCourseTable();
+        loadPublicContent();
+    }
+
+    function deleteCourse(index) {
+        if (confirm('Delete this course?')) {
+            const course = academyData.courses[index];
+            addActivity('Course Deleted', `${course.code} deleted`);
+            academyData.courses.splice(index, 1);
+            saveData();
+            loadCourseTable();
+            loadPublicContent();
+        }
+    }
+
+    // ==================== TIMETABLE MANAGEMENT ====================
     function loadTimetableTable() {
+        const tbody = document.getElementById('timetableTableBody');
         let html = '';
         academyData.timetable.forEach((slot, index) => {
-            html += `<tr><td>${slot.day}</td><td>${slot.time}</td><td>${slot.course}</td><td>${slot.tutor}</td><td>${slot.venue}</td>
-                <td><button class="btn-sm btn-edit" onclick="editTimetable(${index})"><i class="fas fa-edit"></i></button>
-                <button class="btn-sm btn-delete" onclick="deleteTimetable(${index})"><i class="fas fa-trash"></i></button></td></tr>`;
+            html += `<tr>
+                <td>${slot.day}</td><td>${slot.time}</td><td>${slot.course}</td>
+                <td>${slot.tutor}</td><td>${slot.venue}</td>
+                <td><button class="btn-sm btn-delete" onclick="deleteTimetable(${index})"><i class="fas fa-trash"></i></button></td>
+            </tr>`;
         });
-        document.getElementById('timetableTableBody').innerHTML = html;
+        tbody.innerHTML = html;
+        updateCourseSelect();
     }
 
+    function updateCourseSelect() {
+        const options = academyData.courses.map(c => `<option value="${c.code}">${c.code}</option>`).join('');
+        document.getElementById('slotCourse').innerHTML = options;
+    }
+
+    function openTimetableModal() {
+        updateCourseSelect();
+        document.getElementById('timetableModal').style.display = 'flex';
+    }
+
+    function saveTimetable(e) {
+        e.preventDefault();
+        const newSlot = {
+            day: document.getElementById('slotDay').value,
+            time: document.getElementById('slotTime').value,
+            course: document.getElementById('slotCourse').value,
+            tutor: document.getElementById('slotTutor').value,
+            venue: document.getElementById('slotVenue').value
+        };
+        academyData.timetable.push(newSlot);
+        addActivity('Timetable Updated', `Added ${newSlot.course} on ${newSlot.day}`);
+        saveData();
+        closeModal('timetableModal');
+        loadTimetableTable();
+        loadPublicContent();
+    }
+
+    function deleteTimetable(index) {
+        if (confirm('Delete this time slot?')) {
+            academyData.timetable.splice(index, 1);
+            addActivity('Timetable Updated', 'Time slot removed');
+            saveData();
+            loadTimetableTable();
+            loadPublicContent();
+        }
+    }
+
+    // ==================== RESULTS MANAGEMENT ====================
     function loadResultsTable() {
+        const tbody = document.getElementById('resultsTableBody');
         let html = '';
         academyData.results.forEach((result, index) => {
-            html += `<tr><td>${result.studentId}</td><td>${result.name}</td><td>${result.course}</td>
-                <td>${result.test1}</td><td>${result.test2}</td><td>${result.exam}</td><td>${result.total}</td>
-                <td><span class="grade-badge grade-${result.grade.toLowerCase()}">${result.grade}</span></td>
-                <td><button class="btn-sm btn-edit"><i class="fas fa-edit"></i></button></td></tr>`;
+            html += `<tr>
+                <td>${result.studentId}</td><td>${result.studentName}</td><td>${result.course}</td>
+                <td>${result.test1}</td><td>${result.test2}</td><td>${result.exam}</td>
+                <td>${result.total}</td><td><span class="grade-badge grade-${result.grade.toLowerCase()}">${result.grade}</span></td>
+                <td><button class="btn-sm btn-delete" onclick="deleteResult(${index})"><i class="fas fa-trash"></i></button></td>
+            </tr>`;
         });
-        document.getElementById('resultsTableBody').innerHTML = html;
+        tbody.innerHTML = html;
+        updateResultSelects();
     }
 
+    function updateResultSelects() {
+        const studentOptions = academyData.students.map(s => `<option value="${s.id}">${s.name} (${s.id})</option>`).join('');
+        const courseOptions = academyData.courses.map(c => `<option value="${c.code}">${c.code}</option>`).join('');
+        document.getElementById('resultStudent').innerHTML = studentOptions;
+        document.getElementById('resultCourse').innerHTML = courseOptions;
+    }
+
+    function openResultModal() {
+        updateResultSelects();
+        document.getElementById('resultModal').style.display = 'flex';
+    }
+
+    function saveResult(e) {
+        e.preventDefault();
+        const studentId = document.getElementById('resultStudent').value;
+        const student = academyData.students.find(s => s.id === studentId);
+        const test1 = parseInt(document.getElementById('test1Score').value);
+        const test2 = parseInt(document.getElementById('test2Score').value);
+        const exam = parseInt(document.getElementById('examScore').value);
+        const total = test1 + test2 + exam;
+        let grade = 'F';
+        if (total >= 70) grade = 'A';
+        else if (total >= 60) grade = 'B';
+        else if (total >= 50) grade = 'C';
+        else if (total >= 45) grade = 'D';
+
+        const newResult = {
+            studentId,
+            studentName: student.name,
+            course: document.getElementById('resultCourse').value,
+            test1, test2, exam, total, grade
+        };
+        academyData.results.push(newResult);
+        addActivity('Result Added', `${student.name} - ${newResult.course}: ${total}% (${grade})`);
+        saveData();
+        closeModal('resultModal');
+        loadResultsTable();
+        loadAdminDashboard();
+    }
+
+    function deleteResult(index) {
+        if (confirm('Delete this result?')) {
+            academyData.results.splice(index, 1);
+            addActivity('Result Deleted', 'Result entry removed');
+            saveData();
+            loadResultsTable();
+        }
+    }
+
+    // ==================== SETTINGS ====================
+    function saveSettings(e) {
+        e.preventDefault();
+        academyData.settings.classStartDate = document.getElementById('settingClassStart').value;
+        academyData.settings.enrollmentDeadline = document.getElementById('settingDeadline').value;
+        academyData.settings.whatsappLink = document.getElementById('settingWhatsApp').value;
+        academyData.settings.academyEmail = document.getElementById('settingEmail').value;
+        
+        addActivity('Settings Updated', 'Platform settings modified');
+        saveData();
+        updateSettingsDisplay();
+        updateCountdown();
+        alert('Settings saved successfully!');
+    }
+
+    // ==================== ADMIN SECTION NAVIGATION ====================
     function showAdminSection(section) {
         document.querySelectorAll('.admin-nav-item').forEach(item => item.classList.remove('active'));
         event.target.closest('.admin-nav-item').classList.add('active');
-        ['adminDashboard', 'adminCourses', 'adminTimetable', 'adminResults'].forEach(id => {
+        
+        ['adminDashboard', 'adminStudents', 'adminCourses', 'adminTimetable', 'adminResults', 'adminSettings'].forEach(id => {
             document.getElementById(id).style.display = 'none';
         });
-        const sectionMap = { 'dashboard': 'adminDashboard', 'courses': 'adminCourses', 'timetable': 'adminTimetable', 'results': 'adminResults' };
+        
+        const sectionMap = {
+            'dashboard': 'adminDashboard',
+            'students': 'adminStudents',
+            'courses': 'adminCourses',
+            'timetable': 'adminTimetable',
+            'results': 'adminResults',
+            'settings': 'adminSettings'
+        };
+        
         document.getElementById(sectionMap[section]).style.display = 'block';
         document.getElementById('adminTitle').textContent = section.charAt(0).toUpperCase() + section.slice(1);
-    }
-
-    function openCourseModal() { document.getElementById('courseModal').style.display = 'flex'; }
-    function openTimetableModal() { document.getElementById('timetableModal')?.style.display = 'flex'; }
-    function openResultModal() { document.getElementById('resultModal')?.style.display = 'flex'; }
-    function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
-    function saveCourse(e) { e.preventDefault(); closeModal('courseModal'); alert('Course saved!'); }
-    function editTimetable(index) { alert('Edit timetable slot: ' + academyData.timetable[index].course); }
-    function deleteTimetable(index) { if(confirm('Delete this time slot?')) { academyData.timetable.splice(index, 1); loadTimetableTable(); loadPublicContent(); }}
-
-    // Close modals when clicking outside
-    window.onclick = function(event) {
-        if (event.target.classList.contains('legal-modal')) {
-            event.target.style.display = 'none';
-        }
-        if (event.target.classList.contains('modal-admin')) {
-            event.target.style.display = 'none';
+        
+        if (section === 'students') loadStudentTable();
+        if (section === 'courses') loadCourseTable();
+        if (section === 'timetable') loadTimetableTable();
+        if (section === 'results') loadResultsTable();
+        if (section === 'settings') {
+            document.getElementById('settingClassStart').value = academyData.settings.classStartDate;
+            document.getElementById('settingDeadline').value = academyData.settings.enrollmentDeadline;
+            document.getElementById('settingWhatsApp').value = academyData.settings.whatsappLink;
+            document.getElementById('settingEmail').value = academyData.settings.academyEmail;
         }
     }
+
+    // ==================== INITIALIZATION ====================
+    window.onload = function() {
+        loadPublicContent();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('legal-modal')) {
+                event.target.style.display = 'none';
+            }
+            if (event.target.classList.contains('modal-admin')) {
+                event.target.style.display = 'none';
+            }
+            if (event.target.classList.contains('login-modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+    };
+
 </script>
 
 </body>
