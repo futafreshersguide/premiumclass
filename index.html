@@ -132,46 +132,6 @@
             margin-left: 10px;
         }
 
-        /* Mode Toggle */
-        .mode-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-
-        .mode-btn {
-            padding: 12px 24px;
-            border-radius: 40px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: all 0.2s;
-        }
-
-        .public-btn {
-            background: white;
-            color: #2563eb;
-        }
-
-        .admin-btn {
-            background: #1e293b;
-            color: white;
-        }
-
-        #publicSite {
-            display: block;
-        }
-
-        #adminPortal {
-            display: none;
-            background: #f8fafc;
-            min-height: 100vh;
-        }
-
         /* Admin Portal Styles */
         .admin-container {
             display: flex;
@@ -406,6 +366,27 @@
             border-bottom: 2px solid #e2e8f0;
         }
 
+        .legal-modal-content h3 {
+            color: #334155;
+            margin: 20px 0 10px;
+        }
+
+        .legal-modal-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: #475569;
+        }
+
+        .legal-modal-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .legal-modal-content li {
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -495,6 +476,12 @@
             color: #2563eb;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .btn {
             padding: 12px 28px;
             border-radius: 40px;
@@ -524,6 +511,25 @@
 
         .btn-outline:hover {
             background: #2563eb;
+            color: white;
+        }
+
+        .admin-login-btn {
+            background: transparent;
+            border: 2px solid #1e293b;
+            color: #1e293b;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .admin-login-btn:hover {
+            background: #1e293b;
             color: white;
         }
 
@@ -562,6 +568,26 @@
             padding: 24px;
             margin: 30px 0;
         }
+
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .grade-badge {
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+
+        .grade-a { background: #dcfce7; color: #15803d; }
+        .grade-b { background: #fef9c3; color: #854d0e; }
+        .grade-c { background: #fee2e2; color: #dc2626; }
+        .grade-d { background: #fed7aa; color: #9a3412; }
+        .grade-f { background: #fecaca; color: #991b1b; }
 
         .registration-section {
             background: white;
@@ -603,6 +629,13 @@
             border-radius: 16px;
             border-left: 4px solid #eab308;
             margin: 24px 0;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
         }
 
         footer {
@@ -665,6 +698,67 @@
             border: 2px solid #e2e8f0;
             border-radius: 40px;
             font-size: 1rem;
+        }
+
+        .floating-admin-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: #1e293b;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: none;
+            font-size: 24px;
+        }
+
+        .floating-admin-btn:hover {
+            transform: scale(1.1);
+            background: #2563eb;
+        }
+
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 8px 15px;
+            border-radius: 40px;
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #publicSite {
+            display: block;
+        }
+
+        #adminPortal {
+            display: none;
+            background: #f8fafc;
+            min-height: 100vh;
         }
 
         @media (max-width: 900px) {
@@ -755,7 +849,7 @@
     </div>
 </div>
 
-<!-- Legal Document Modals (Condensed) -->
+<!-- Legal Document Modals -->
 <div class="legal-modal" id="privacyPolicyModal" onclick="if(event.target === this) closeLegalModal('privacyPolicyModal')">
     <div class="legal-modal-content">
         <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
@@ -826,9 +920,14 @@
                 <a onclick="scrollToSection('results')">Results</a>
                 <a onclick="scrollToSection('register')">Register</a>
             </div>
-            <button class="btn" onclick="scrollToSection('register')">
-                Enroll Now
-            </button>
+            <div class="nav-right">
+                <button class="btn" onclick="scrollToSection('register')">
+                    Enroll Now
+                </button>
+                <button class="admin-login-btn" onclick="openLoginModal()">
+                    <i class="fas fa-user-shield"></i> Admin
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -924,7 +1023,7 @@
         <section id="results">
             <h2 style="font-size: 2rem; margin: 40px 0; font-weight: 700;">📈 Check Your Results</h2>
             <div style="margin-bottom: 20px; display: flex; gap: 15px; align-items: center;">
-                <input type="text" placeholder="Enter your Student ID" id="resultSearchInput" 
+                <input type="text" placeholder="Enter your Student ID (e.g., GPA001)" id="resultSearchInput" 
                        style="padding: 14px 24px; border-radius: 40px; border: 2px solid #e2e8f0; width: 350px; font-size: 1rem;">
                 <button class="btn" onclick="searchResults()">
                     <i class="fas fa-search"></i> View Results
@@ -1015,15 +1114,32 @@
                         </div>
                     </div>
 
+                    <div class="legal-links">
+                        <span class="legal-link" onclick="showLegalModal('privacyPolicyModal')"><i class="fas fa-shield-alt"></i> Read Privacy Policy Here</span>
+                        <span class="legal-link" onclick="showLegalModal('termsConditionsModal')"><i class="fas fa-gavel"></i> Read Terms & Conditions Here</span>
+                        <span class="legal-link" onclick="showLegalModal('studentAgreementModal')"><i class="fas fa-handshake"></i> Read Student Agreement Here</span>
+                        <span class="legal-link" onclick="showLegalModal('refundPolicyModal')"><i class="fas fa-undo-alt"></i> Read Refund Policy Here</span>
+                    </div>
+
                     <p style="font-size: 0.9rem; color: #64748b; margin-top: 20px; padding-top: 20px; border-top: 1px solid #fcd34d;">
                         <i class="fas fa-check-circle" style="color: #10b981;"></i> 
                         <strong>Non-Extortion Guarantee:</strong> Genius Point Academy guarantees transparent pricing with no hidden fees.
                     </p>
                 </div>
 
+                <label class="agreement-checkbox" style="margin: 20px 0;">
+                    <input type="checkbox" id="agreeCodeConduct" required>
+                    I agree to abide by the Academy's Code of Conduct during all sessions
+                </label>
+
                 <button type="submit" class="btn" style="width: 100%; padding: 18px; font-size: 1.1rem; margin-top: 20px;">
                     <i class="fas fa-lock"></i> Complete Registration & Proceed to Payment
                 </button>
+
+                <p style="text-align: center; margin-top: 20px; color: #64748b; font-size: 0.9rem;">
+                    By clicking "Complete Registration", you confirm that you have read and agree to all terms, policies, and agreements listed above.
+                    A confirmation email will be sent to you and <strong>academygeniuspoint@gmail.com</strong>
+                </p>
             </form>
         </section>
 
@@ -1043,6 +1159,12 @@
             </div>
         </footer>
     </div>
+</div>
+
+<!-- Floating Admin Button -->
+<div class="floating-admin-btn tooltip" onclick="openLoginModal()">
+    <i class="fas fa-user-lock"></i>
+    <span class="tooltip-text">Admin Portal</span>
 </div>
 
 <!-- ==================== ADMIN PORTAL ==================== -->
@@ -1115,7 +1237,6 @@
                     </div>
                 </div>
 
-                <!-- Activity Log -->
                 <div class="activity-log">
                     <h3 style="margin-bottom: 20px;"><i class="fas fa-history"></i> Recent Activity Log</h3>
                     <div id="activityLogContainer"></div>
@@ -1283,21 +1404,23 @@
                     <label class="agreement-checkbox"><input type="checkbox" value="EEE 302"> EEE 302</label>
                 </div>
             </div>
-            <div class="form-group">
-                <label>Payment Status</label>
-                <select class="form-control" id="studentPaymentStatus">
-                    <option value="pending">Pending</option>
-                    <option value="paid">Paid</option>
-                    <option value="completed">Completed</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Status</label>
-                <select class="form-control" id="studentStatus">
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                    <option value="graduated">Graduated</option>
-                </select>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Payment Status</label>
+                    <select class="form-control" id="studentPaymentStatus">
+                        <option value="pending">Pending</option>
+                        <option value="paid">Paid</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control" id="studentStatus">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="graduated">Graduated</option>
+                    </select>
+                </div>
             </div>
             <button type="submit" class="btn">Save Student</button>
             <button type="button" class="btn" style="background: #64748b;" onclick="closeModal('studentModal')">Cancel</button>
@@ -1344,8 +1467,10 @@
         <form onsubmit="saveResult(event)">
             <div class="form-group"><label>Student</label><select class="form-control" id="resultStudent"></select></div>
             <div class="form-group"><label>Course</label><select class="form-control" id="resultCourse"></select></div>
-            <div class="form-group"><label>Test 1 (20%)</label><input type="number" class="form-control" id="test1Score" min="0" max="20" required></div>
-            <div class="form-group"><label>Test 2 (20%)</label><input type="number" class="form-control" id="test2Score" min="0" max="20" required></div>
+            <div class="form-row">
+                <div class="form-group"><label>Test 1 (20%)</label><input type="number" class="form-control" id="test1Score" min="0" max="20" required></div>
+                <div class="form-group"><label>Test 2 (20%)</label><input type="number" class="form-control" id="test2Score" min="0" max="20" required></div>
+            </div>
             <div class="form-group"><label>Exam (60%)</label><input type="number" class="form-control" id="examScore" min="0" max="60" required></div>
             <button type="submit" class="btn">Save Result</button>
             <button type="button" class="btn" style="background: #64748b;" onclick="closeModal('resultModal')">Cancel</button>
@@ -1389,7 +1514,10 @@
 
     // Load from localStorage
     if(localStorage.getItem('gpaData')) {
-        academyData = JSON.parse(localStorage.getItem('gpaData'));
+        try {
+            const savedData = JSON.parse(localStorage.getItem('gpaData'));
+            academyData = { ...academyData, ...savedData };
+        } catch(e) {}
     }
 
     // Save to localStorage
@@ -1457,6 +1585,8 @@
 
     function openLoginModal() {
         document.getElementById('adminLoginModal').style.display = 'flex';
+        document.getElementById('adminName').value = '';
+        document.getElementById('adminPassword').value = '';
     }
 
     function closeLoginModal() {
@@ -1492,7 +1622,7 @@
             loadAdminDashboard();
             loadActivityLog();
         } else {
-            alert('Invalid password!');
+            alert('Invalid password! Please use the correct admin password.');
         }
     }
 
@@ -1501,17 +1631,7 @@
         academyData.currentAdmin = null;
         document.getElementById('adminPortal').style.display = 'none';
         document.getElementById('publicSite').style.display = 'block';
-        alert('Logged out successfully');
-    }
-
-    // ==================== MODE SWITCHING ====================
-    function switchMode(mode) {
-        if (mode === 'public') {
-            document.getElementById('publicSite').style.display = 'block';
-            document.getElementById('adminPortal').style.display = 'none';
-        } else {
-            openLoginModal();
-        }
+        loadPublicContent();
     }
 
     // ==================== SCROLL FUNCTION ====================
@@ -1540,6 +1660,13 @@
                     </div>
                 `;
             });
+            if (level === '100') {
+                coursesHtml += `<div style="margin-top: 20px; background: #f0fdf4; padding: 15px; border-radius: 12px; color: #15803d;"><i class="fas fa-tags"></i> Bundle both: ₦45,000 (Save 10%)</div>`;
+            } else if (level === '200') {
+                coursesHtml += `<div style="margin-top: 20px; background: #f0fdf4; padding: 15px; border-radius: 12px; color: #15803d;"><i class="fas fa-tags"></i> Bundle both: ₦50,400 (Save 10%)</div>`;
+            } else {
+                coursesHtml += `<div style="margin-top: 20px; background: #f0fdf4; padding: 15px; border-radius: 12px; color: #15803d;"><i class="fas fa-tags"></i> Bundle both: ₦54,000 (Save 10%)</div>`;
+            }
             coursesHtml += '</div>';
         });
         document.getElementById('courseDisplay').innerHTML = coursesHtml;
@@ -1554,6 +1681,7 @@
 
         // Update Stats
         document.getElementById('totalEnrolledStats').textContent = academyData.students.length;
+        document.getElementById('totalCoursesStats').textContent = academyData.courses.length;
     }
 
     // ==================== SEARCH RESULTS ====================
@@ -1580,7 +1708,7 @@
                 `;
             });
         } else {
-            html = '<p style="color: #64748b; text-align: center; padding: 40px;">No results found.</p>';
+            html = '<p style="color: #64748b; text-align: center; padding: 40px;">No results found. Please check your Student ID.</p>';
         }
         document.getElementById('resultsDisplay').innerHTML = html;
     }
@@ -1591,8 +1719,9 @@
         
         if (!document.getElementById('agreePrivacy').checked || 
             !document.getElementById('agreeTerms').checked || 
-            !document.getElementById('agreeStudentAgreement').checked) {
-            alert('Please agree to all required policies.');
+            !document.getElementById('agreeStudentAgreement').checked ||
+            !document.getElementById('agreeCodeConduct').checked) {
+            alert('Please agree to all required policies and code of conduct.');
             return;
         }
 
@@ -1648,9 +1777,16 @@
         
         let html = '';
         academyData.activityLog.slice(0, 10).forEach(activity => {
+            let icon = 'history';
+            if (activity.action.includes('Login')) icon = 'sign-in-alt';
+            else if (activity.action.includes('Registration')) icon = 'user-plus';
+            else if (activity.action.includes('Course')) icon = 'book';
+            else if (activity.action.includes('Result')) icon = 'chart-bar';
+            else if (activity.action.includes('Student')) icon = 'user-graduate';
+            
             html += `
                 <div class="activity-item">
-                    <div class="activity-icon"><i class="fas fa-${getActivityIcon(activity.action)}"></i></div>
+                    <div class="activity-icon"><i class="fas fa-${icon}"></i></div>
                     <div class="activity-details">
                         <div class="activity-action">${activity.action}</div>
                         <div class="activity-meta">${activity.details} - by ${activity.admin} on ${activity.timestamp}</div>
@@ -1658,15 +1794,7 @@
                 </div>
             `;
         });
-        container.innerHTML = html || '<p>No recent activity</p>';
-    }
-
-    function getActivityIcon(action) {
-        if (action.includes('Login')) return 'sign-in-alt';
-        if (action.includes('Registration')) return 'user-plus';
-        if (action.includes('Course')) return 'book';
-        if (action.includes('Result')) return 'chart-bar';
-        return 'history';
+        container.innerHTML = html || '<p style="color: #64748b; padding: 20px; text-align: center;">No recent activity</p>';
     }
 
     // ==================== STUDENT MANAGEMENT ====================
@@ -1793,7 +1921,7 @@
             s.name.toLowerCase().includes(searchTerm) ||
             s.email.toLowerCase().includes(searchTerm) ||
             s.id.toLowerCase().includes(searchTerm)
-        ).forEach((student, index) => {
+        ).forEach((student) => {
             const originalIndex = academyData.students.indexOf(student);
             const statusClass = student.paymentStatus === 'paid' ? 'status-active' : 
                                student.paymentStatus === 'pending' ? 'status-pending' : 'status-completed';
@@ -1840,22 +1968,44 @@
         document.getElementById('courseModal').style.display = 'flex';
     }
 
+    function editCourse(index) {
+        const course = academyData.courses[index];
+        document.getElementById('courseCode').value = course.code;
+        document.getElementById('courseName').value = course.name;
+        document.getElementById('courseLevel').value = course.level;
+        document.getElementById('coursePrice').value = course.price;
+        document.getElementById('courseCapacity').value = course.capacity;
+        document.getElementById('courseModal').style.display = 'flex';
+        // Store index for editing
+        document.getElementById('courseModal').dataset.editIndex = index;
+    }
+
     function saveCourse(e) {
         e.preventDefault();
-        const newCourse = {
+        const index = document.getElementById('courseModal').dataset.editIndex;
+        
+        const courseData = {
             code: document.getElementById('courseCode').value,
             name: document.getElementById('courseName').value,
             level: document.getElementById('courseLevel').value,
             price: parseInt(document.getElementById('coursePrice').value),
             capacity: parseInt(document.getElementById('courseCapacity').value),
-            enrolled: 0
+            enrolled: index !== undefined ? academyData.courses[index].enrolled : 0
         };
-        academyData.courses.push(newCourse);
-        addActivity('Course Added', `${newCourse.code} - ${newCourse.name} added`);
+
+        if (index !== undefined) {
+            academyData.courses[index] = courseData;
+            addActivity('Course Updated', `${courseData.code} - ${courseData.name} updated`);
+        } else {
+            academyData.courses.push(courseData);
+            addActivity('Course Added', `${courseData.code} - ${courseData.name} added`);
+        }
+
         saveData();
         closeModal('courseModal');
         loadCourseTable();
         loadPublicContent();
+        delete document.getElementById('courseModal').dataset.editIndex;
     }
 
     function deleteCourse(index) {
@@ -1886,11 +2036,16 @@
 
     function updateCourseSelect() {
         const options = academyData.courses.map(c => `<option value="${c.code}">${c.code}</option>`).join('');
-        document.getElementById('slotCourse').innerHTML = options;
+        const slotCourse = document.getElementById('slotCourse');
+        const resultCourse = document.getElementById('resultCourse');
+        if (slotCourse) slotCourse.innerHTML = options;
+        if (resultCourse) resultCourse.innerHTML = options;
     }
 
     function openTimetableModal() {
         updateCourseSelect();
+        document.getElementById('slotTime').value = '';
+        document.getElementById('slotVenue').value = '';
         document.getElementById('timetableModal').style.display = 'flex';
     }
 
@@ -1940,12 +2095,17 @@
     function updateResultSelects() {
         const studentOptions = academyData.students.map(s => `<option value="${s.id}">${s.name} (${s.id})</option>`).join('');
         const courseOptions = academyData.courses.map(c => `<option value="${c.code}">${c.code}</option>`).join('');
-        document.getElementById('resultStudent').innerHTML = studentOptions;
-        document.getElementById('resultCourse').innerHTML = courseOptions;
+        const resultStudent = document.getElementById('resultStudent');
+        const resultCourse = document.getElementById('resultCourse');
+        if (resultStudent) resultStudent.innerHTML = studentOptions;
+        if (resultCourse) resultCourse.innerHTML = courseOptions;
     }
 
     function openResultModal() {
         updateResultSelects();
+        document.getElementById('test1Score').value = '';
+        document.getElementById('test2Score').value = '';
+        document.getElementById('examScore').value = '';
         document.getElementById('resultModal').style.display = 'flex';
     }
 
@@ -2007,7 +2167,8 @@
         event.target.closest('.admin-nav-item').classList.add('active');
         
         ['adminDashboard', 'adminStudents', 'adminCourses', 'adminTimetable', 'adminResults', 'adminSettings'].forEach(id => {
-            document.getElementById(id).style.display = 'none';
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
         });
         
         const sectionMap = {
@@ -2019,7 +2180,8 @@
             'settings': 'adminSettings'
         };
         
-        document.getElementById(sectionMap[section]).style.display = 'block';
+        const targetSection = document.getElementById(sectionMap[section]);
+        if (targetSection) targetSection.style.display = 'block';
         document.getElementById('adminTitle').textContent = section.charAt(0).toUpperCase() + section.slice(1);
         
         if (section === 'students') loadStudentTable();
