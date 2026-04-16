@@ -1712,6 +1712,217 @@
 </div>
 
 <script>
+    // ==================== COURSE MANAGEMENT (FIXED) ====================
+// Add this variable at the top of your script with other data
+let editingCourseIndex = -1;
+
+function loadCourseTable() {
+    const tbody = document.getElementById('courseTableBody');
+    if (!tbody) return;
+    
+    let html = '';
+    academyData.courses.forEach((course, index) => {
+        html += `<tr>
+            <td>${course.code}</td>
+            <td>${course.name}</td>
+            <td>${course.level}</td>
+            <td>₦${course.price.toLocaleString()}</td>
+            <td>${course.capacity}</td>
+            <td>${course.enrolled}</td>
+            <td>
+                <button class="btn-sm btn-edit" onclick="editCourse(${index})"><i class="fas fa-edit"></i></button>
+                <button class="btn-sm btn-delete" onclick="deleteCourse(${index})"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>`;
+    });
+    tbody.innerHTML = html || '<tr><td colspan="7" style="text-align: center; padding: 40px;">No courses found. Add a course to get started.</td></tr>';
+}
+
+function openCourseModal() {
+    editingCourseIndex = -1; // Reset editing index
+    document.getElementById('courseModal').querySelector('h2').textContent = 'Add New Course';
+    document.getElementById('courseCode').value = '';
+    document.getElementById('courseName').value = '';
+    document.getElementById('courseLevel').value = '100';
+    document.getElementById('coursePrice').value = '';
+    document.getElementById('courseCapacity').value = '40';
+    document.getElementById('courseModal').style.display = 'flex';
+}
+
+function editCourse(index) {
+    editingCourseIndex = index;
+    const course = academyData.courses[index];
+    
+    document.getElementById('courseModal').querySelector('h2').textContent = 'Edit Course';
+    document.getElementById('courseCode').value = course.code;
+    document.getElementById('courseName').value = course.name;
+    document.getElementById('courseLevel').value = course.level;
+    document.getElementById('coursePrice').value = course.price;
+    document.getElementById('courseCapacity').value = course.capacity;
+    document.getElementById('courseModal').style.display = 'flex';
+}
+
+function saveCourse(e) {
+    e.preventDefault();
+    
+    const courseData = {
+        code: document.getElementById('courseCode').value.trim().toUpperCase(),
+        name: document.getElementById('courseName').value.trim(),
+        level: document.getElementById('courseLevel').value,
+        price: parseInt(document.getElementById('coursePrice').value),
+        capacity: parseInt(document.getElementById('courseCapacity').value),
+        enrolled: 0
+    };
+    
+    // Validation
+    if (!courseData.code || !courseData.name || !courseData.price) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    if (courseData.price < 0) {
+        alert('Price cannot be negative');
+        return;
+    }
+    
+    if (courseData.capacity < 1) {
+        alert('Capacity must be at least 1');
+        return;
+    }
+    
+    // Check for duplicate course code (only when adding new)
+    if (editingCourseIndex === -1) {
+        const existingCourse = academyData.courses.find(c => c.code === courseData.code);
+        if (existingCourse) {
+            alert(`Course code ${courseData.code} already exists!`);
+            return;
+        }
+    }
+    
+    if (editingCourseIndex === -1) {
+        // Add new course
+        academyData.courses.push(courseData);
+        addActivity('Course Added', `${courseData.code} - ${courseData.name} added`);
+        console.log('Course added:', courseData);
+    } else {
+        // Update existing course - preserve enrolled count
+        courseData.enrolled = academyData.courses[editingCourseIndex].enrolled;
+        academyData.courses[editingCourseIndex] = courseData;
+        addActivity('Course Updated', `${courseData.code} - ${courseData.name} updated`);
+        console.log('Course updated:', courseData);
+    }
+    
+    saveData();
+    closeModal('courseModal');
+    loadCourseTable();
+    loadPublicContent();
+    updateCourseSelects();
+    
+    // Reset editing index
+    editingCourseIndex = -1;
+    
+    alert('Course saved successfully!');
+}
+
+function deleteCourse(index) {
+    if (confirm('Are you sure you want to delete this course? This action cannot be undone.')) {
+        const course = academyData.courses[index];
+        
+        // Check if students are enrolled
+        if (course.enrolled > 0) {
+            if (!confirm(`This course has ${course.enrolled} enrolled students. Deleting it will remove it from their records. Continue?`)) {
+                return;
+            }
+            
+            // Remove course from students
+            academyData.students.forEach(student => {
+                student.courses = student.courses.filter(c => c !== course.code);
+            });
+        }
+        
+        addActivity('Course Deleted', `${course.code} - ${course.name} deleted`);
+        academyData.courses.splice(index, 1);
+        saveData();
+        loadCourseTable();
+        loadPublicContent();
+        updateCourseSelects();
+        loadStudentTable(); // Refresh student table since courses changed
+        
+        alert('Course deleted successfully!');
+    }
+}
+
+function updateCourseSelects() {
+    const courseOptions = academyData.courses.map(c => `<option value="${c.code}">${c.code} - ${c.name}</option>`).join('');
+    
+    const slotCourse = document.getElementById('slotCourse');
+    const resultCourse = document.getElementById('resultCourse');
+    
+    if (slotCourse) slotCourse.innerHTML = courseOptions || '<option value="">No courses available</option>';
+    if (resultCourse) resultCourse.innerHTML = courseOptions || '<option value="">No courses available</option>';
+}
+
+// Also update the saveSettings function to work properly
+function saveSettings(e) {
+    e.preventDefault();
+    
+    academyData.settings.classStartDate = document.getElementById('settingClassStart').value;
+    academyData.settings.enrollmentDeadline = document.getElementById('settingDeadline').value;
+    academyData.settings.whatsappLink = document.getElementById('settingWhatsApp').value;
+    academyData.settings.academyEmail = document.getElementById('settingEmail').value;
+    
+    addActivity('Settings Updated', 'Platform settings modified');
+    saveData();
+    updateSettingsDisplay();
+    updateCountdown();
+    
+    alert('Settings saved successfully!');
+    console.log('Settings saved:', academyData.settings);
+}
+
+// Add this helper function to save data with error handling
+function saveData() {
+    try {
+        localStorage.setItem('gpaData', JSON.stringify(academyData));
+        console.log('Data saved successfully');
+    } catch (e) {
+        console.error('Error saving data:', e);
+        alert('Error saving data. Please try again.');
+    }
+}
+
+// Update the initialization to load data properly
+window.onload = function() {
+    // Load saved data
+    if(localStorage.getItem('gpaData')) {
+        try {
+            const savedData = JSON.parse(localStorage.getItem('gpaData'));
+            academyData = { ...academyData, ...savedData };
+            console.log('Data loaded successfully');
+        } catch(e) {
+            console.error('Error loading data:', e);
+        }
+    }
+    
+    loadPublicContent();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+        if (event.target.classList.contains('legal-modal')) {
+            event.target.style.display = 'none';
+        }
+        if (event.target.classList.contains('modal-admin')) {
+            event.target.style.display = 'none';
+        }
+        if (event.target.classList.contains('login-modal')) {
+            event.target.style.display = 'none';
+        }
+    };
+    
+    console.log('Genius Point Academy initialized');
+};
     // ==================== DATA STORE ====================
     let academyData = {
         settings: {
