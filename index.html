@@ -2,131 +2,760 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Genius Point Academy | Premium Learning Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
-        .page-container { min-height: 100vh; display: flex; flex-direction: column; }
-        .navbar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 18px 0; position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { background: linear-gradient(135deg, #2563eb, #1e40af); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; font-weight: 700; }
-        .logo-text { font-weight: 800; font-size: 1.6rem; color: #1e293b; }
-        .logo-text span { color: #2563eb; }
-        .nav-links { display: flex; gap: 35px; }
-        .nav-links a { text-decoration: none; color: #475569; font-weight: 500; font-size: 1rem; cursor: pointer; transition: color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: #2563eb; }
-        .nav-right { display: flex; align-items: center; gap: 15px; }
-        .btn { padding: 12px 28px; border-radius: 40px; font-weight: 600; border: none; cursor: pointer; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
-        .btn-primary { background: #2563eb; color: white; }
-        .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.25); }
-        .btn-outline { background: transparent; border: 2px solid #1e293b; color: #1e293b; }
-        .btn-outline:hover { background: #1e293b; color: white; }
-        .btn-success { background: #10b981; color: white; }
-        .btn-success:hover { background: #059669; }
-        .main-content { flex: 1; max-width: 1280px; margin: 0 auto; padding: 40px 30px; width: 100%; }
-        .page { display: none; }
-        .page.active { display: block; }
-        .hero-section { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; margin: 30px 0 50px; }
-        .hero-badge { background: #dbeafe; color: #1e40af; padding: 6px 18px; border-radius: 40px; font-weight: 600; font-size: 0.9rem; display: inline-block; margin-bottom: 20px; }
-        .hero-title { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
-        .hero-title span { color: #2563eb; }
-        .hero-desc { font-size: 1.15rem; color: #475569; margin-bottom: 30px; }
-        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
-        .stats-card { background: white; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .stat-item { display: flex; align-items: center; gap: 15px; padding: 15px 0; border-bottom: 1px solid #e2e8f0; }
-        .stat-item:last-child { border-bottom: none; }
-        .stat-icon { width: 50px; height: 50px; background: #eef2ff; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #2563eb; font-size: 22px; }
-        .stat-info h3 { font-size: 1.8rem; font-weight: 700; }
-        .section-title { font-size: 2rem; font-weight: 700; margin: 50px 0 30px; }
-        .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .course-card { background: white; border-radius: 20px; padding: 28px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
-        .course-level { background: #2563eb; color: white; padding: 5px 16px; border-radius: 40px; font-weight: 600; font-size: 0.85rem; display: inline-block; margin-bottom: 20px; }
-        .course-item { padding: 18px 0; border-bottom: 1px solid #f1f5f9; }
-        .course-item:last-child { border-bottom: none; }
-        .course-code { font-weight: 800; font-size: 1.2rem; color: #1e293b; }
-        .course-name { color: #64748b; font-size: 0.95rem; margin: 5px 0 10px; }
-        .course-price { font-weight: 700; font-size: 1.2rem; color: #1e293b; }
-        .course-enrolled { color: #64748b; font-size: 0.85rem; }
-        .bundle-tag { background: #f0fdf4; padding: 15px; border-radius: 14px; margin-top: 20px; color: #15803d; }
-        .timetable-container { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
-        .timetable-table { width: 100%; border-collapse: collapse; }
-        .timetable-table th { text-align: left; padding: 18px 15px; background: #f8fafc; font-weight: 600; color: #1e293b; border-radius: 12px; }
-        .timetable-table td { padding: 18px 15px; border-bottom: 1px solid #e2e8f0; }
-        .form-card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; margin-bottom: 10px; font-weight: 600; color: #334155; }
-        .form-control { width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 14px; font-size: 1rem; font-family: 'Inter', sans-serif; transition: border 0.2s; }
-        .form-control:focus { outline: none; border-color: #2563eb; }
-        .checkbox-group { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-        .checkbox-item { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .checkbox-item input { width: 20px; height: 20px; accent-color: #2563eb; cursor: pointer; }
-        .legal-box { background: #fffbeb; padding: 25px; border-radius: 16px; border-left: 4px solid #f59e0b; margin: 30px 0; }
-        .legal-link { color: #2563eb; font-weight: 600; cursor: pointer; text-decoration: underline; }
-        .legal-link:hover { color: #1e40af; }
-        .payment-info { background: #f0fdf4; padding: 25px; border-radius: 16px; border: 2px solid #10b981; margin: 30px 0; }
-        .bank-details { background: white; padding: 20px; border-radius: 14px; margin: 15px 0; }
-        .value-display { background: #f8fafc; padding: 12px 18px; border-radius: 12px; margin: 10px 0; font-weight: 600; color: #1e293b; }
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
-        .modal-content { background: white; padding: 40px; border-radius: 24px; max-width: 700px; width: 90%; max-height: 80vh; overflow-y: auto; }
-        .modal-content h2 { margin-bottom: 25px; color: #1e293b; }
-        .modal-content h3 { margin: 20px 0 10px; color: #334155; }
-        .modal-content p { margin-bottom: 15px; color: #475569; }
-        .modal-content ul { margin-left: 20px; margin-bottom: 15px; color: #475569; }
-        .modal-content li { margin-bottom: 8px; }
-        .close-modal { margin-top: 25px; }
-        .footer { background: #0f172a; color: #94a3b8; padding: 40px 0; margin-top: 60px; }
-        .footer-content { max-width: 1280px; margin: 0 auto; padding: 0 30px; text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 25px; flex-wrap: wrap; }
-        .footer-links a { color: #cbd5e1; text-decoration: none; cursor: pointer; }
-        .footer-links a:hover { color: white; }
-        .countdown-banner { background: linear-gradient(135deg, #1e1b4b, #312e81); color: white; padding: 15px 0; }
-        .countdown-content { max-width: 1280px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
-        .countdown-timer { display: flex; gap: 20px; }
-        .countdown-item { text-align: center; }
-        .countdown-number { font-size: 1.8rem; font-weight: 800; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 12px; min-width: 70px; }
-        .countdown-label { font-size: 0.8rem; opacity: 0.8; margin-top: 5px; }
-        .whatsapp-btn { background: #25D366; color: white; padding: 12px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-        .result-card { background: white; border-radius: 20px; padding: 25px; margin: 20px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
-        .grade-badge { padding: 6px 16px; border-radius: 40px; font-weight: 700; display: inline-block; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background: #f8fafc; 
+            color: #1e293b; 
+            line-height: 1.5; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .page-container { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar - Mobile Friendly */
+        .navbar { 
+            background: white; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            padding: 12px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            width: 100%;
+        }
+        
+        .nav-container { 
+            width: 100%;
+            padding: 0 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            flex-wrap: wrap;
+        }
+        
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        
+        .logo-icon { 
+            background: linear-gradient(135deg, #2563eb, #1e40af); 
+            width: 38px; 
+            height: 38px; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            font-size: 18px; 
+            font-weight: 700; 
+        }
+        
+        .logo-text { 
+            font-weight: 800; 
+            font-size: 1.3rem; 
+            color: #1e293b; 
+        }
+        
+        .logo-text span { 
+            color: #2563eb; 
+        }
+        
+        .nav-links { 
+            display: none; 
+        }
+        
+        .nav-right { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #1e293b;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        /* Mobile Menu Dropdown */
+        .mobile-menu {
+            display: none;
+            width: 100%;
+            background: white;
+            padding: 16px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 12px;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+        }
+        
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-menu a:hover {
+            color: #2563eb;
+        }
+        
+        /* Buttons - Mobile Friendly */
+        .btn { 
+            padding: 10px 16px; 
+            border-radius: 40px; 
+            font-weight: 600; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 0.9rem; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 6px; 
+            transition: all 0.2s; 
+            white-space: nowrap;
+        }
+        
+        .btn-primary { 
+            background: #2563eb; 
+            color: white; 
+        }
+        
+        .btn-outline { 
+            background: transparent; 
+            border: 2px solid #1e293b; 
+            color: #1e293b; 
+        }
+        
+        /* Countdown Banner - Mobile */
+        .countdown-banner { 
+            background: linear-gradient(135deg, #1e1b4b, #312e81); 
+            color: white; 
+            padding: 12px 0; 
+            width: 100%;
+        }
+        
+        .countdown-content { 
+            width: 100%;
+            padding: 0 16px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 12px; 
+            text-align: center;
+        }
+        
+        .countdown-timer { 
+            display: flex; 
+            gap: 12px; 
+            justify-content: center; 
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item { 
+            text-align: center; 
+        }
+        
+        .countdown-number { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            background: rgba(255,255,255,0.1); 
+            padding: 6px 10px; 
+            border-radius: 10px; 
+            min-width: 55px; 
+        }
+        
+        .countdown-label { 
+            font-size: 0.7rem; 
+            opacity: 0.8; 
+            margin-top: 4px; 
+        }
+        
+        .whatsapp-btn { 
+            background: #25D366; 
+            color: white; 
+            padding: 10px 18px; 
+            border-radius: 40px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 0.9rem;
+        }
+        
+        /* Main Content - Mobile */
+        .main-content { 
+            flex: 1; 
+            width: 100%;
+            padding: 20px 16px; 
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .page { 
+            display: none; 
+            width: 100%;
+        }
+        
+        .page.active { 
+            display: block; 
+        }
+        
+        /* Hero Section - Mobile */
+        .hero-section { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 24px; 
+            margin-bottom: 30px; 
+        }
+        
+        .hero-badge { 
+            background: #dbeafe; 
+            color: #1e40af; 
+            padding: 5px 14px; 
+            border-radius: 40px; 
+            font-weight: 600; 
+            font-size: 0.8rem; 
+            display: inline-block; 
+            margin-bottom: 12px; 
+        }
+        
+        .hero-title { 
+            font-size: 2rem; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            margin-bottom: 16px; 
+        }
+        
+        .hero-title span { 
+            color: #2563eb; 
+        }
+        
+        .hero-desc { 
+            font-size: 1rem; 
+            color: #475569; 
+            margin-bottom: 20px; 
+        }
+        
+        .hero-buttons { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+        }
+        
+        .hero-buttons .btn {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        /* Value Display */
+        .value-display { 
+            background: #f8fafc; 
+            padding: 12px 14px; 
+            border-radius: 12px; 
+            margin: 12px 0; 
+            font-weight: 500; 
+            font-size: 0.9rem;
+        }
+        
+        /* Stats Card - Mobile */
+        .stats-card { 
+            background: white; 
+            border-radius: 20px; 
+            padding: 20px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+        }
+        
+        .stat-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            padding: 12px 0; 
+            border-bottom: 1px solid #e2e8f0; 
+        }
+        
+        .stat-item:last-child { 
+            border-bottom: none; 
+        }
+        
+        .stat-icon { 
+            width: 45px; 
+            height: 45px; 
+            background: #eef2ff; 
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #2563eb; 
+            font-size: 20px; 
+        }
+        
+        .stat-info h3 { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+        }
+        
+        .stat-info p {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        /* Section Titles */
+        .section-title { 
+            font-size: 1.6rem; 
+            font-weight: 700; 
+            margin: 30px 0 20px; 
+        }
+        
+        /* Course Grid - Mobile */
+        .course-grid { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+        }
+        
+        .course-card { 
+            background: white; 
+            border-radius: 18px; 
+            padding: 20px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            border: 1px solid #f1f5f9; 
+        }
+        
+        .course-level { 
+            background: #2563eb; 
+            color: white; 
+            padding: 4px 14px; 
+            border-radius: 40px; 
+            font-weight: 600; 
+            font-size: 0.8rem; 
+            display: inline-block; 
+            margin-bottom: 16px; 
+        }
+        
+        .course-item { 
+            padding: 14px 0; 
+            border-bottom: 1px solid #f1f5f9; 
+        }
+        
+        .course-item:last-child { 
+            border-bottom: none; 
+        }
+        
+        .course-code { 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+        }
+        
+        .course-name { 
+            color: #64748b; 
+            font-size: 0.9rem; 
+            margin: 4px 0 8px; 
+        }
+        
+        .course-price { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+        }
+        
+        .bundle-tag { 
+            background: #f0fdf4; 
+            padding: 12px; 
+            border-radius: 12px; 
+            margin-top: 16px; 
+            color: #15803d; 
+            font-size: 0.9rem;
+        }
+        
+        /* Timetable - Mobile */
+        .timetable-container { 
+            background: white; 
+            border-radius: 18px; 
+            padding: 16px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .timetable-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 550px;
+            font-size: 0.85rem;
+        }
+        
+        .timetable-table th { 
+            text-align: left; 
+            padding: 12px 10px; 
+            background: #f8fafc; 
+            font-weight: 600; 
+        }
+        
+        .timetable-table td { 
+            padding: 12px 10px; 
+            border-bottom: 1px solid #e2e8f0; 
+        }
+        
+        /* Form - Mobile */
+        .form-card { 
+            background: white; 
+            border-radius: 20px; 
+            padding: 24px 18px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            width: 100%;
+        }
+        
+        .form-row { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0; 
+        }
+        
+        .form-group { 
+            margin-bottom: 18px; 
+        }
+        
+        .form-group label { 
+            display: block; 
+            margin-bottom: 6px; 
+            font-weight: 600; 
+            font-size: 0.9rem;
+        }
+        
+        .form-control { 
+            width: 100%; 
+            padding: 12px 14px; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 12px; 
+            font-size: 1rem; 
+            font-family: 'Inter', sans-serif; 
+            background: white;
+        }
+        
+        .checkbox-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+        }
+        
+        .checkbox-item { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px; 
+            font-size: 0.9rem;
+        }
+        
+        .checkbox-item input { 
+            width: 20px; 
+            height: 20px; 
+            accent-color: #2563eb; 
+            margin-top: 2px;
+        }
+        
+        .legal-box { 
+            background: #fffbeb; 
+            padding: 18px; 
+            border-radius: 14px; 
+            border-left: 4px solid #f59e0b; 
+            margin: 20px 0; 
+        }
+        
+        .legal-link { 
+            color: #2563eb; 
+            font-weight: 600; 
+            cursor: pointer; 
+            text-decoration: underline; 
+            font-size: 0.9rem;
+        }
+        
+        /* Modal - Mobile */
+        .modal-overlay { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.5); 
+            z-index: 1000; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 16px;
+        }
+        
+        .modal-content { 
+            background: white; 
+            padding: 24px 20px; 
+            border-radius: 20px; 
+            max-width: 100%; 
+            width: 100%; 
+            max-height: 85vh; 
+            overflow-y: auto; 
+        }
+        
+        .modal-content h2 { 
+            font-size: 1.4rem; 
+            margin-bottom: 16px; 
+        }
+        
+        .modal-content h3 { 
+            font-size: 1.1rem; 
+            margin: 16px 0 8px; 
+        }
+        
+        .modal-content p, .modal-content li { 
+            font-size: 0.9rem; 
+        }
+        
+        /* Footer - Mobile */
+        .footer { 
+            background: #0f172a; 
+            color: #94a3b8; 
+            padding: 30px 0; 
+            margin-top: 40px; 
+            width: 100%;
+        }
+        
+        .footer-content { 
+            width: 100%;
+            padding: 0 16px; 
+            text-align: center; 
+        }
+        
+        .footer-links { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 12px; 
+            margin-bottom: 20px; 
+            font-size: 0.85rem;
+        }
+        
+        .footer-links a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            cursor: pointer; 
+        }
+        
+        /* Floating Admin Button */
+        .floating-admin {
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            z-index: 999;
+        }
+        
+        .floating-admin .btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        /* Program Schedule Card */
+        .schedule-card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            margin: 24px 0;
+            border-left: 5px solid #2563eb;
+        }
+        
+        .schedule-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .schedule-item {
+            text-align: center;
+            padding: 12px;
+        }
+        
+        .schedule-item i {
+            font-size: 1.8rem;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+        
+        .schedule-item h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+        
+        .schedule-item p {
+            font-size: 1.1rem;
+        }
+        
+        /* Results */
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px;
+            margin: 16px 0;
+        }
+        
+        .grade-badge {
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        
         .grade-a { background: #dcfce7; color: #15803d; }
         .grade-b { background: #fef9c3; color: #854d0e; }
-        .status-badge { padding: 5px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; }
-        .status-approved { background: #dcfce7; color: #15803d; }
+        
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
         .status-pending { background: #fef9c3; color: #854d0e; }
-        @media (max-width: 900px) {
-            .nav-links { display: none; }
-            .hero-section { grid-template-columns: 1fr; }
-            .course-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .countdown-content { flex-direction: column; text-align: center; }
+        
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .nav-container {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 30px;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .nav-links {
+                display: flex;
+                gap: 35px;
+            }
+            
+            .nav-links a {
+                text-decoration: none;
+                color: #475569;
+                font-weight: 500;
+                cursor: pointer;
+            }
+            
+            .countdown-content {
+                max-width: 1280px;
+                margin: 0 auto;
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            
+            .main-content {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 40px 30px;
+            }
+            
+            .hero-section {
+                display: grid;
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 40px;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+            }
+            
+            .hero-buttons .btn {
+                width: auto;
+            }
+            
+            .course-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            
+            .schedule-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .floating-admin .btn {
+                width: 60px;
+                height: 60px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="page-container">
     <!-- Countdown Banner -->
-    <div class="countdown-banner" id="countdownBanner">
+    <div class="countdown-banner">
         <div class="countdown-content">
-            <div><i class="fas fa-hourglass-half"></i> Enrollment Deadline: <strong id="deadlineDate">June 15, 2026</strong> <span class="status-badge status-pending">HURRY!</span></div>
+            <div><i class="fas fa-hourglass-half"></i> Deadline: <strong id="deadlineDate">June 15, 2026</strong> <span class="status-badge status-pending">HURRY!</span></div>
             <div class="countdown-timer">
                 <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">Days</div></div>
                 <div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Hours</div></div>
-                <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Minutes</div></div>
-                <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Seconds</div></div>
+                <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Mins</div></div>
+                <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Secs</div></div>
             </div>
-            <a href="#" class="whatsapp-btn" id="whatsappLink" target="_blank"><i class="fab fa-whatsapp"></i> Join WhatsApp Group</a>
+            <a href="#" class="whatsapp-btn" id="whatsappLink" target="_blank"><i class="fab fa-whatsapp"></i> Join WhatsApp</a>
         </div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo"><div class="logo-icon">GP</div><div class="logo-text">Genius<span>Point</span></div></div>
+            <div class="logo">
+                <div class="logo-icon">GP</div>
+                <div class="logo-text">Genius<span>Point</span></div>
+            </div>
             <div class="nav-links">
                 <a class="active" onclick="showPage('home')">Home</a>
                 <a onclick="showPage('courses')">Courses</a>
@@ -135,181 +764,169 @@
                 <a onclick="showPage('register')">Register</a>
             </div>
             <div class="nav-right">
-                <button class="btn btn-primary" onclick="showPage('register')">Enroll Now</button>
-                <button class="btn btn-outline" onclick="openLoginModal()"><i class="fas fa-user-shield"></i> Admin</button>
+                <button class="btn btn-primary" onclick="showPage('register')">Enroll</button>
+                <button class="btn btn-outline" onclick="openLoginModal()"><i class="fas fa-user-shield"></i></button>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
             </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a onclick="showPage('home'); closeMobileMenu()">Home</a>
+            <a onclick="showPage('courses'); closeMobileMenu()">Courses</a>
+            <a onclick="showPage('timetable'); closeMobileMenu()">Timetable</a>
+            <a onclick="showPage('results'); closeMobileMenu()">Results</a>
+            <a onclick="showPage('register'); closeMobileMenu()">Register</a>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
     <div class="main-content">
         <!-- HOME PAGE -->
         <div id="homePage" class="page active">
             <div class="hero-section">
                 <div>
-                    <span class="hero-badge"><i class="fas fa-graduation-cap"></i> Premium Intensive 2026</span>
-                    <h1 class="hero-title">Master Your <span>Course Outline</span> in Just 8 Weeks</h1>
-                    <p class="hero-desc">Join Genius Point Academy's premium intensive program. Expert tutors E-simple, Absamie, and O'yemi will guide you through your syllabus with 3-hour weekly sessions, bi-weekly tests, and comprehensive mock exams.</p>
+                    <span class="hero-badge"><i class="fas fa-graduation-cap"></i> Premium 2026</span>
+                    <h1 class="hero-title">Master Your <span>Course Outline</span> in 8 Weeks</h1>
+                    <p class="hero-desc">Expert tutors E-simple, Absamie, and O'yemi guide you through your syllabus.</p>
                     
-                    <!-- Value Display Section -->
                     <div class="value-display">
                         <i class="fas fa-trophy" style="color: #f59e0b;"></i> 
-                        <strong>Program Value:</strong> Complete 2 courses in 8 weeks | 24+ hours of expert instruction | Mock exams included
-                    </div>
-                    <div class="value-display">
-                        <i class="fas fa-check-circle" style="color: #10b981;"></i> 
-                        <strong>What You Get:</strong> Course materials • Progress tracking • Certificate of completion • WhatsApp community access
+                        <strong>Value:</strong> 24+ hrs instruction • Mock exams • Certificate
                     </div>
                     
                     <div class="hero-buttons">
                         <button class="btn btn-primary" onclick="showPage('register')">Start Learning <i class="fas fa-arrow-right"></i></button>
-                        <button class="btn btn-outline" onclick="showLegalModal('privacyModal')"><i class="fas fa-shield-alt"></i> Privacy Policy</button>
+                        <button class="btn btn-outline" onclick="showLegalModal('privacyModal')"><i class="fas fa-shield-alt"></i> Privacy</button>
                     </div>
                 </div>
                 <div class="stats-card">
-                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-info"><h3 id="homeTotalStudents">0</h3><p>Students Enrolled</p></div></div>
-                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-info"><h3>6</h3><p>Premium Courses</p></div></div>
-                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-user"></i></div><div class="stat-info"><h3>3</h3><p>Expert Tutors</p></div></div>
-                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-calendar-week"></i></div><div class="stat-info"><h3>8</h3><p>Weeks Program</p></div></div>
+                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-info"><h3 id="homeTotalStudents">0</h3><p>Students</p></div></div>
+                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-info"><h3>6</h3><p>Courses</p></div></div>
+                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-user"></i></div><div class="stat-info"><h3>3</h3><p>Tutors</p></div></div>
+                    <div class="stat-item"><div class="stat-icon"><i class="fas fa-calendar-week"></i></div><div class="stat-info"><h3>8</h3><p>Weeks</p></div></div>
                 </div>
             </div>
-            <div style="background: white; border-radius: 20px; padding: 30px; margin: 40px 0; border-left: 5px solid #2563eb;">
-                <h2 style="margin-bottom: 20px;"><i class="fas fa-calendar-check"></i> Program Schedule</h2>
-                <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 30px;">
-                    <div style="text-align: center;"><i class="fas fa-play-circle" style="font-size: 2rem; color: #2563eb;"></i><h3>Classes Start</h3><p style="font-size: 1.5rem; font-weight: 700; color: #2563eb;" id="homeClassStart">June 20, 2026</p><p>8 Weeks Intensive</p></div>
-                    <div style="text-align: center;"><i class="fas fa-clock" style="font-size: 2rem; color: #dc2626;"></i><h3>Enrollment Deadline</h3><p style="font-size: 1.5rem; font-weight: 700; color: #dc2626;" id="homeDeadline">June 15, 2026</p><p>40 seats max/course</p></div>
-                    <div style="text-align: center;"><i class="fas fa-users" style="font-size: 2rem; color: #25D366;"></i><h3>WhatsApp Community</h3><a href="#" class="whatsapp-btn" id="homeWhatsappLink" style="display: inline-flex; margin-top: 10px;"><i class="fab fa-whatsapp"></i> Join Group</a></div>
+            
+            <div class="schedule-card">
+                <h2 style="margin-bottom: 16px; font-size: 1.3rem;"><i class="fas fa-calendar-check"></i> Program Schedule</h2>
+                <div class="schedule-grid">
+                    <div class="schedule-item"><i class="fas fa-play-circle"></i><h3>Classes Start</h3><p style="font-weight: 700; color: #2563eb;" id="homeClassStart">June 20, 2026</p></div>
+                    <div class="schedule-item"><i class="fas fa-clock"></i><h3>Deadline</h3><p style="font-weight: 700; color: #dc2626;" id="homeDeadline">June 15, 2026</p></div>
+                    <div class="schedule-item"><i class="fas fa-users"></i><h3>Community</h3><a href="#" class="whatsapp-btn" id="homeWhatsappLink" style="margin-top: 8px;"><i class="fab fa-whatsapp"></i> Join</a></div>
                 </div>
             </div>
         </div>
 
         <!-- COURSES PAGE -->
         <div id="coursesPage" class="page">
-            <h2 class="section-title"><i class="fas fa-book"></i> Premium Course Offerings</h2>
+            <h2 class="section-title"><i class="fas fa-book"></i> Premium Courses</h2>
             <div id="coursesContainer" class="course-grid"></div>
-            <div style="margin-top: 40px; padding: 25px; background: #f0fdf4; border-radius: 20px;">
-                <h3><i class="fas fa-tags"></i> Bundle Discounts Available!</h3>
-                <p>Enroll in both courses at your level and receive automatic discounts. See course cards for details.</p>
-                <p class="value-display" style="margin-top: 15px;"><i class="fas fa-calculator"></i> <strong>Example Savings:</strong> 100 Level Bundle (MTH 102 + CHM 102) - Save ₦5,000!</p>
+            <div style="margin-top: 24px; padding: 18px; background: #f0fdf4; border-radius: 16px;">
+                <h3><i class="fas fa-tags"></i> Bundle & Save!</h3>
+                <p style="font-size: 0.9rem;">Enroll in both courses at your level and save!</p>
             </div>
         </div>
 
         <!-- TIMETABLE PAGE -->
         <div id="timetablePage" class="page">
-            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Weekly Class Schedule</h2>
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Weekly Schedule</h2>
             <div class="timetable-container">
                 <table class="timetable-table">
                     <thead><tr><th>Day</th><th>Time</th><th>Course</th><th>Tutor</th><th>Venue</th></tr></thead>
                     <tbody id="timetableBody"></tbody>
                 </table>
             </div>
-            <div style="margin-top: 30px; padding: 20px; background: #eff6ff; border-radius: 16px;">
-                <p><i class="fas fa-info-circle"></i> Classes run for 3 hours each session. Attendance is mandatory for premium students.</p>
-            </div>
+            <p style="margin-top: 16px; padding: 12px; background: #eff6ff; border-radius: 12px; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> 3 hours per session. Attendance required.</p>
         </div>
 
         <!-- RESULTS PAGE -->
         <div id="resultsPage" class="page">
-            <h2 class="section-title"><i class="fas fa-chart-bar"></i> Check Your Results</h2>
-            <div style="max-width: 600px; margin: 0 auto;">
-                <div style="display: flex; gap: 15px; margin-bottom: 30px;">
-                    <input type="text" class="form-control" id="resultSearchInput" placeholder="Enter your Student ID (e.g., GPA001)" style="flex: 1;">
-                    <button class="btn btn-primary" onclick="searchStudentResults()"><i class="fas fa-search"></i> View Results</button>
-                </div>
-                <div id="resultsDisplayContainer"></div>
+            <h2 class="section-title"><i class="fas fa-chart-bar"></i> Check Results</h2>
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                <input type="text" class="form-control" id="resultSearchInput" placeholder="Enter Student ID (e.g., GPA001)">
+                <button class="btn btn-primary" onclick="searchStudentResults()"><i class="fas fa-search"></i> View Results</button>
             </div>
+            <div id="resultsDisplayContainer"></div>
         </div>
 
         <!-- REGISTRATION PAGE -->
         <div id="registerPage" class="page">
             <div class="form-card">
-                <h2 style="margin-bottom: 10px;"><i class="fas fa-pen"></i> Register for Premium Classes</h2>
-                <p style="color: #64748b; margin-bottom: 30px;">Complete the form below. After submission, you'll receive payment instructions.</p>
+                <h2 style="margin-bottom: 8px; font-size: 1.5rem;"><i class="fas fa-pen"></i> Register</h2>
+                <p style="color: #64748b; margin-bottom: 24px; font-size: 0.9rem;">Complete the form below.</p>
                 
-                <!-- FORM WITH FORMSUBMIT INTEGRATION -->
                 <form id="registrationForm" action="https://formsubmit.co/academygeniuspoint@gmail.com" method="POST">
-                    <!-- FormSubmit Configuration -->
                     <input type="hidden" name="_subject" value="New Registration - Genius Point Academy">
-                    <input type="hidden" name="_cc" value="academygeniuspoint@gmail.com">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="false">
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name *</label>
-                            <input type="text" class="form-control" name="Full Name" id="regName" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address *</label>
-                            <input type="email" class="form-control" name="Email" id="regEmail" required placeholder="student@example.com">
-                        </div>
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" class="form-control" name="Full Name" id="regName" required placeholder="John Doe">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Phone Number *</label>
-                            <input type="tel" class="form-control" name="Phone" id="regPhone" required placeholder="08012345678">
-                        </div>
-                        <div class="form-group">
-                            <label>Institution</label>
-                            <input type="text" class="form-control" name="Institution" id="regInstitution" placeholder="University of Lagos">
-                        </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" class="form-control" name="Email" id="regEmail" required placeholder="student@example.com">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Academic Level *</label>
-                            <select class="form-control" name="Level" id="regLevel" required>
-                                <option value="">Select Level</option>
-                                <option value="100 Level">100 Level</option>
-                                <option value="200 Level">200 Level</option>
-                                <option value="300 Level">300 Level</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Registration Type *</label>
-                            <select class="form-control" name="Registration Type" id="regType" required onchange="updateRegType()">
-                                <option value="">Select Type</option>
-                                <option value="Premium Class">Premium Class (Limited seats)</option>
-                                <option value="Test Only">Test Only (Unlimited)</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" class="form-control" name="Phone" id="regPhone" required placeholder="08012345678">
+                    </div>
+                    <div class="form-group">
+                        <label>Institution</label>
+                        <input type="text" class="form-control" name="Institution" id="regInstitution" placeholder="University of Lagos">
+                    </div>
+                    <div class="form-group">
+                        <label>Level *</label>
+                        <select class="form-control" name="Level" id="regLevel" required>
+                            <option value="">Select</option>
+                            <option value="100 Level">100 Level</option>
+                            <option value="200 Level">200 Level</option>
+                            <option value="300 Level">300 Level</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Registration Type *</label>
+                        <select class="form-control" name="Registration Type" id="regType" required onchange="updateRegType()">
+                            <option value="">Select</option>
+                            <option value="Premium Class">Premium Class</option>
+                            <option value="Test Only">Test Only</option>
+                        </select>
                     </div>
                     
-                    <div style="margin: 25px 0;">
-                        <h3 style="margin-bottom: 20px;">Select Courses</h3>
+                    <div style="margin: 20px 0;">
+                        <h3 style="margin-bottom: 14px; font-size: 1.1rem;">Select Courses</h3>
                         <div id="courseSelectionArea" class="checkbox-group"></div>
-                        <p id="testPriceMessage" style="color: #f59e0b; margin-top: 15px;"></p>
-                        
-                        <!-- Hidden field for selected courses -->
+                        <p id="testPriceMessage" style="color: #f59e0b; margin-top: 12px; font-size: 0.9rem;"></p>
                         <input type="hidden" name="Selected Courses" id="selectedCoursesHidden">
                         <input type="hidden" name="Total Amount" id="totalAmountHidden">
                         <input type="hidden" name="Student ID" id="studentIdHidden">
                     </div>
 
                     <div class="legal-box">
-                        <h3 style="margin-bottom: 20px;"><i class="fas fa-file-signature"></i> Required Agreements</h3>
+                        <h3 style="margin-bottom: 14px; font-size: 1rem;"><i class="fas fa-file-signature"></i> Agreements</h3>
                         <div class="checkbox-group">
-                            <label class="checkbox-item"><input type="checkbox" id="agreePrivacy" required> I have read and agree to the <span class="legal-link" onclick="showLegalModal('privacyModal')">Privacy Policy</span></label>
-                            <label class="checkbox-item"><input type="checkbox" id="agreeTerms" required> I have read and accept the <span class="legal-link" onclick="showLegalModal('termsModal')">Terms and Conditions</span></label>
-                            <label class="checkbox-item"><input type="checkbox" id="agreeStudent" required> I have read and agree to the <span class="legal-link" onclick="showLegalModal('studentAgreementModal')">Student Agreement</span></label>
-                            <label class="checkbox-item"><input type="checkbox" id="agreeRefund"> I understand the <span class="legal-link" onclick="showLegalModal('refundModal')">Refund Policy</span></label>
+                            <label class="checkbox-item"><input type="checkbox" id="agreePrivacy" required> I agree to <span class="legal-link" onclick="showLegalModal('privacyModal')">Privacy Policy</span></label>
+                            <label class="checkbox-item"><input type="checkbox" id="agreeTerms" required> I accept <span class="legal-link" onclick="showLegalModal('termsModal')">Terms</span></label>
+                            <label class="checkbox-item"><input type="checkbox" id="agreeStudent" required> I agree to <span class="legal-link" onclick="showLegalModal('studentAgreementModal')">Student Agreement</span></label>
+                            <label class="checkbox-item"><input type="checkbox" id="agreeRefund"> I understand <span class="legal-link" onclick="showLegalModal('refundModal')">Refund Policy</span></label>
                         </div>
-                        <div style="margin-top: 20px; display: flex; gap: 20px; flex-wrap: wrap;">
-                            <span class="legal-link" onclick="showLegalModal('privacyModal')"><i class="fas fa-shield-alt"></i> Read Privacy Policy</span>
-                            <span class="legal-link" onclick="showLegalModal('termsModal')"><i class="fas fa-gavel"></i> Read Terms & Conditions</span>
-                            <span class="legal-link" onclick="showLegalModal('studentAgreementModal')"><i class="fas fa-handshake"></i> Read Student Agreement</span>
-                            <span class="legal-link" onclick="showLegalModal('refundModal')"><i class="fas fa-undo-alt"></i> Read Refund Policy</span>
+                        <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px;">
+                            <span class="legal-link" onclick="showLegalModal('privacyModal')"><i class="fas fa-shield-alt"></i> Privacy</span>
+                            <span class="legal-link" onclick="showLegalModal('termsModal')"><i class="fas fa-gavel"></i> Terms</span>
+                            <span class="legal-link" onclick="showLegalModal('studentAgreementModal')"><i class="fas fa-handshake"></i> Agreement</span>
+                            <span class="legal-link" onclick="showLegalModal('refundModal')"><i class="fas fa-undo-alt"></i> Refund</span>
                         </div>
-                        <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #fcd34d; font-size: 0.9rem;">
+                        <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #fcd34d; font-size: 0.85rem;">
                             <i class="fas fa-check-circle" style="color: #10b981;"></i> 
-                            <strong>Non-Extortion Guarantee:</strong> Genius Point Academy guarantees transparent pricing with absolutely no hidden fees or forced payments.
+                            <strong>No hidden fees guaranteed.</strong>
                         </p>
                     </div>
 
-                    <label class="checkbox-item"><input type="checkbox" id="agreeConduct" required> I agree to abide by the Academy's Code of Conduct</label>
+                    <label class="checkbox-item"><input type="checkbox" id="agreeConduct" required> I agree to Code of Conduct</label>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; margin-top: 30px; font-size: 1.1rem;"><i class="fas fa-paper-plane"></i> Submit Registration</button>
-                    <p style="text-align: center; margin-top: 20px; color: #64748b;">Confirmation will be sent to your email and academygeniuspoint@gmail.com</p>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; margin-top: 24px; font-size: 1rem;"><i class="fas fa-paper-plane"></i> Submit Registration</button>
+                    <p style="text-align: center; margin-top: 16px; color: #64748b; font-size: 0.8rem;">Confirmation sent to your email</p>
                 </form>
             </div>
         </div>
@@ -319,127 +936,106 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a onclick="showLegalModal('privacyModal')">Privacy Policy</a> <span>|</span>
-                <a onclick="showLegalModal('termsModal')">Terms & Conditions</a> <span>|</span>
-                <a onclick="showLegalModal('studentAgreementModal')">Student Agreement</a> <span>|</span>
-                <a onclick="showLegalModal('refundModal')">Refund Policy</a>
+                <a onclick="showLegalModal('privacyModal')">Privacy</a> <span>|</span>
+                <a onclick="showLegalModal('termsModal')">Terms</a> <span>|</span>
+                <a onclick="showLegalModal('studentAgreementModal')">Agreement</a> <span>|</span>
+                <a onclick="showLegalModal('refundModal')">Refund</a>
             </div>
-            <p><i class="fas fa-envelope"></i> academygeniuspoint@gmail.com</p>
-            <p style="margin-top: 20px;">© 2026 Genius Point Academy. All Rights Reserved. | Non-Extortion Guaranteed</p>
+            <p style="font-size: 0.85rem;"><i class="fas fa-envelope"></i> academygeniuspoint@gmail.com</p>
+            <p style="margin-top: 16px; font-size: 0.8rem;">© 2026 Genius Point Academy</p>
         </div>
     </footer>
 </div>
 
 <!-- Floating Admin Button -->
-<div style="position: fixed; bottom: 25px; right: 25px; z-index: 999;">
-    <button class="btn btn-outline" style="background: #1e293b; color: white; border: none; width: 60px; height: 60px; border-radius: 50%; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.2);" onclick="openLoginModal()">
-        <i class="fas fa-user-lock" style="font-size: 24px;"></i>
+<div class="floating-admin">
+    <button class="btn btn-outline" style="background: #1e293b; color: white; border: none;" onclick="openLoginModal()">
+        <i class="fas fa-user-lock" style="font-size: 22px;"></i>
     </button>
 </div>
 
 <!-- Admin Login Modal -->
 <div class="modal-overlay" id="adminLoginModal" onclick="if(event.target === this) closeLoginModal()">
-    <div class="modal-content" style="max-width: 400px;">
+    <div class="modal-content">
         <h2><i class="fas fa-lock"></i> Admin Login</h2>
         <form onsubmit="handleAdminLogin(event)">
-            <div class="form-group"><label>Admin Name *</label><input type="text" class="form-control" id="adminName" required></div>
-            <div class="form-group"><label>Password *</label><input type="password" class="form-control" id="adminPassword" required></div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-sign-in-alt"></i> Login</button>
-            <p style="margin-top: 15px; font-size: 0.8rem; text-align: center;">Password: GENIUSPOINTACADEMYPREMIUMCLASS2026-FIRST-EDITION</p>
+            <div class="form-group"><label>Name</label><input type="text" class="form-control" id="adminName" required></div>
+            <div class="form-group"><label>Password</label><input type="password" class="form-control" id="adminPassword" required></div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            <p style="margin-top: 12px; font-size: 0.75rem; text-align: center;">Password: GENIUSPOINTACADEMYPREMIUMCLASS2026-FIRST-EDITION</p>
         </form>
         <button class="btn btn-outline" style="width: 100%; margin-top: 10px;" onclick="closeLoginModal()">Cancel</button>
     </div>
 </div>
 
-<!-- Legal Modals -->
+<!-- Legal Modals (Condensed for mobile) -->
 <div class="modal-overlay" id="privacyModal" onclick="if(event.target === this) closeLegalModal('privacyModal')">
     <div class="modal-content">
         <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
-        <p><strong>Last Updated:</strong> April 15, 2026</p>
-        <h3>1. Information We Collect</h3>
-        <p>Genius Point Academy ("we," "our," or "us") collects personal information that you voluntarily provide when registering for our programs. This includes:</p>
-        <ul><li>Full name and contact information (email address, phone number)</li><li>Academic institution and current level of study</li><li>Course enrollment selections and payment information</li><li>Test scores and academic performance data</li></ul>
-        <h3>2. How We Use Your Information</h3>
-        <p>Your personal information is used exclusively for the following purposes:</p>
-        <ul><li>Processing course registrations and verifying payments</li><li>Providing access to premium classes and course materials</li><li>Sending important updates regarding schedules, tests, and results</li><li>Generating progress reports and academic certificates</li><li>Internal academic record keeping and quality improvement</li></ul>
-        <h3>3. Data Protection and Security</h3>
-        <p>We implement industry-standard security measures including encryption and secure servers to protect your personal data from unauthorized access, alteration, or disclosure. Your information is stored securely and is never sold, rented, or shared with third parties for marketing purposes.</p>
-        <h3>4. Email Communications</h3>
-        <p>By registering, you consent to receive essential communications from Genius Point Academy. All official correspondence will originate from <strong>academygeniuspoint@gmail.com</strong>. You may opt out of non-essential communications at any time.</p>
-        <h3>5. Your Rights</h3>
-        <p>You have the right to request access to your personal data, request corrections to inaccurate information, or request deletion of your information by contacting us at academygeniuspoint@gmail.com.</p>
-        <h3>6. Contact Information</h3>
-        <p>For any privacy-related concerns or questions, please contact: <strong>academygeniuspoint@gmail.com</strong></p>
-        <button class="btn btn-primary close-modal" onclick="closeLegalModal('privacyModal')">I Understand</button>
+        <h3>Information We Collect</h3>
+        <p>Full name, contact details, institution, course enrollment, payment information, test scores.</p>
+        <h3>How We Use Information</h3>
+        <p>Processing registrations, providing class access, sending updates, progress reports.</p>
+        <h3>Data Protection</h3>
+        <p>Industry-standard security. Never sold or shared.</p>
+        <h3>Contact</h3>
+        <p><strong>academygeniuspoint@gmail.com</strong></p>
+        <button class="btn btn-primary" onclick="closeLegalModal('privacyModal')" style="width: 100%;">I Understand</button>
     </div>
 </div>
 
 <div class="modal-overlay" id="termsModal" onclick="if(event.target === this) closeLegalModal('termsModal')">
     <div class="modal-content">
-        <h2><i class="fas fa-file-contract"></i> Terms and Conditions</h2>
-        <p><strong>Effective Date:</strong> April 15, 2026</p>
-        <h3>1. Acceptance of Terms</h3>
-        <p>By registering for Genius Point Academy's Premium Intensive Program ("the Program"), you ("Student," "you") agree to be legally bound by these Terms and Conditions.</p>
-        <h3>2. Program Structure</h3>
-        <ul><li>The Program runs for eight (8) consecutive weeks from the announced start date.</li><li>Classes are held once weekly for a minimum of three (3) hours per session.</li><li>Bi-weekly progress tests and final mock examinations are mandatory components.</li><li>Course outlines will be fully completed within the 8-week period.</li></ul>
-        <h3>3. Enrollment and Payment</h3>
-        <ul><li>Premium classes are strictly limited to forty (40) students per course on a first-come, first-served basis.</li><li>Test-only registration has unlimited capacity.</li><li>Bundle discounts are automatically applied when enrolling in both courses at the same academic level.</li><li>Full payment must be confirmed before access to classes is granted.</li><li>All prices are clearly stated with absolutely no hidden fees or additional charges.</li></ul>
-        <h3>4. Refund and Cancellation Policy</h3>
-        <ul><li>Full refund (100%) available if requested in writing before the first scheduled class.</li><li>Partial refund (50%) available if requested before the second scheduled class.</li><li>No refunds will be issued after the second class has commenced.</li><li>Test-only registration fees are non-refundable once the test schedule has been confirmed.</li></ul>
-        <h3>5. Code of Conduct</h3>
-        <p>Students are expected to maintain professional and respectful conduct during all sessions. Disruptive behavior, harassment, or academic dishonesty may result in immediate removal from the Program without refund.</p>
-        <h3>6. Intellectual Property</h3>
-        <p>All course materials, including but not limited to slides, recordings, handouts, and assessments, are the exclusive intellectual property of Genius Point Academy. Reproduction or distribution without written permission is strictly prohibited.</p>
-        <h3>7. Limitation of Liability</h3>
-        <p>Genius Point Academy guarantees high-quality instruction but cannot guarantee specific academic grades or outcomes. We are not liable for circumstances beyond our reasonable control.</p>
-        <button class="btn btn-primary close-modal" onclick="closeLegalModal('termsModal')">I Accept These Terms</button>
+        <h2><i class="fas fa-file-contract"></i> Terms & Conditions</h2>
+        <h3>Program Structure</h3>
+        <p>8 weeks, 3 hours weekly, bi-weekly tests, mock exams.</p>
+        <h3>Enrollment</h3>
+        <p>Limited to 40 students per premium course.</p>
+        <h3>Payment</h3>
+        <p>Bundle discounts available. No hidden fees.</p>
+        <h3>Refund Policy</h3>
+        <p>Full refund before first class, 50% before second class.</p>
+        <button class="btn btn-primary" onclick="closeLegalModal('termsModal')" style="width: 100%;">I Accept</button>
     </div>
 </div>
 
 <div class="modal-overlay" id="studentAgreementModal" onclick="if(event.target === this) closeLegalModal('studentAgreementModal')">
     <div class="modal-content">
         <h2><i class="fas fa-handshake"></i> Student Agreement</h2>
-        <p><strong>Binding Agreement Between Genius Point Academy and Enrolled Student</strong></p>
-        <h3>1. Commitment to Academic Excellence</h3>
-        <p>I, the undersigned student, solemnly agree to:</p>
-        <ul><li>Attend all scheduled classes punctually and for the full duration</li><li>Complete all assigned bi-weekly tests and final mock examinations</li><li>Participate actively and constructively in class discussions</li><li>Treat tutors and fellow students with utmost respect and courtesy</li></ul>
-        <h3>2. Academic Integrity Pledge</h3>
-        <p>I understand that all submitted work must be entirely my own. Cheating, plagiarism, collusion, or any form of academic dishonesty will result in immediate dismissal from the Program with no refund and potential reporting to my home institution.</p>
-        <h3>3. Communication and Notification</h3>
-        <p>I agree to maintain open and timely communication with tutors and administration. I will notify the Academy at least 24 hours in advance if I cannot attend a scheduled class due to unavoidable circumstances.</p>
-        <h3>4. Progress Tracking Consent</h3>
-        <p>I consent to my academic progress being systematically tracked, recorded, and analyzed. This data will be used exclusively to provide personalized feedback and improve overall learning outcomes.</p>
-        <h3>5. Non-Extortion and Transparency Guarantee</h3>
-        <p>Genius Point Academy explicitly and unconditionally guarantees that all fees are transparent and clearly stated upfront. There are absolutely no hidden charges, unexpected fees, or coercive practices. Students will never be pressured or manipulated into additional payments beyond the agreed course fees displayed at registration.</p>
-        <h3>6. Acknowledgment of Binding Terms</h3>
-        <p>I acknowledge that I have thoroughly read, understood, and voluntarily accept the Privacy Policy, Terms and Conditions, and this Student Agreement in their entirety. I understand this constitutes a legally binding agreement.</p>
-        <button class="btn btn-primary close-modal" onclick="closeLegalModal('studentAgreementModal')">I Agree & Accept</button>
+        <h3>Commitment</h3>
+        <p>Attend all classes, complete tests, respect tutors.</p>
+        <h3>Academic Integrity</h3>
+        <p>No cheating or plagiarism.</p>
+        <h3>Non-Extortion Guarantee</h3>
+        <p>Transparent pricing, no hidden fees.</p>
+        <button class="btn btn-primary" onclick="closeLegalModal('studentAgreementModal')" style="width: 100%;">I Agree</button>
     </div>
 </div>
 
 <div class="modal-overlay" id="refundModal" onclick="if(event.target === this) closeLegalModal('refundModal')">
     <div class="modal-content">
-        <h2><i class="fas fa-undo-alt"></i> Refund & Cancellation Policy</h2>
-        <h3>1. Premium Class Refund Schedule</h3>
-        <ul><li><strong>Before First Class:</strong> 100% refund of course fees (minus any non-refundable processing fees if applicable)</li><li><strong>Before Second Class:</strong> 50% refund of course fees</li><li><strong>After Second Class:</strong> No refund available under any circumstances</li></ul>
-        <h3>2. Test-Only Registration</h3>
-        <p>Test-only registration fees are strictly non-refundable once the test schedule has been confirmed and communicated to the student.</p>
-        <h3>3. Cancellation by the Academy</h3>
-        <p>In the unlikely event that Genius Point Academy cancels a course due to insufficient enrollment or unforeseen circumstances, registered students will receive either a 100% full refund or the option to transfer registration to an equivalent course at no additional cost.</p>
-        <h3>4. Refund Request Procedure</h3>
-        <p>All refund requests must be submitted in writing via email to <strong>academygeniuspoint@gmail.com</strong>. Please include your full name, registered course(s), Student ID, and a brief reason for cancellation.</p>
-        <h3>5. Processing Timeline</h3>
-        <p>Approved refunds will be processed within seven to ten (7-10) business days and credited to the original payment method or bank account provided.</p>
-        <h3>6. Exceptional Circumstances</h3>
-        <p>Genius Point Academy reserves the right to review refund requests on a case-by-case basis for exceptional circumstances such as documented medical emergencies. Supporting documentation will be required.</p>
-        <button class="btn btn-primary close-modal" onclick="closeLegalModal('refundModal')">I Understand</button>
+        <h2><i class="fas fa-undo-alt"></i> Refund Policy</h2>
+        <h3>Premium Class</h3>
+        <p>100% before first class, 50% before second class.</p>
+        <h3>Test-Only</h3>
+        <p>Non-refundable after schedule confirmation.</p>
+        <button class="btn btn-primary" onclick="closeLegalModal('refundModal')" style="width: 100%;">I Understand</button>
     </div>
 </div>
 
 <script>
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+}
+
+function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('active');
+}
+
 // Data Store
 let academyData = {
-    settings: { classStart: '2026-06-20', deadline: '2026-06-15', whatsapp: 'https://chat.whatsapp.com/EXAMPLE', email: 'academygeniuspoint@gmail.com', testPrice: 5000 },
+    settings: { classStart: '2026-06-20', deadline: '2026-06-15', whatsapp: 'https://chat.whatsapp.com/EXAMPLE', testPrice: 5000 },
     courses: [
         { code: 'MTH 102', name: 'Elementary Mathematics II', level: '100', price: 25000, capacity: 40, enrolled: 0 },
         { code: 'CHM 102', name: 'General Chemistry II', level: '100', price: 25000, capacity: 40, enrolled: 0 },
@@ -450,34 +1046,32 @@ let academyData = {
     ],
     students: [],
     timetable: [
-        { day: 'Monday', time: '10:00 AM - 1:00 PM', course: 'MTH 102', tutor: 'E-simple', venue: 'Room 201' },
-        { day: 'Tuesday', time: '2:00 PM - 5:00 PM', course: 'CHM 102', tutor: 'O\'yemi', venue: 'Lab 3' },
-        { day: 'Wednesday', time: '10:00 AM - 1:00 PM', course: 'MTS 202', tutor: 'Absamie', venue: 'Room 305' },
-        { day: 'Thursday', time: '2:00 PM - 5:00 PM', course: 'CVE 202', tutor: 'Absamie', venue: 'Room 210' },
-        { day: 'Friday', time: '9:00 AM - 12:00 PM', course: 'MTS 316', tutor: 'E-simple', venue: 'Room 102' },
-        { day: 'Saturday', time: '10:00 AM - 1:00 PM', course: 'EEE 302', tutor: 'O\'yemi', venue: 'Electronics Lab' }
+        { day: 'Mon', time: '10AM-1PM', course: 'MTH 102', tutor: 'E-simple', venue: 'Room 201' },
+        { day: 'Tue', time: '2PM-5PM', course: 'CHM 102', tutor: 'O\'yemi', venue: 'Lab 3' },
+        { day: 'Wed', time: '10AM-1PM', course: 'MTS 202', tutor: 'Absamie', venue: 'Room 305' },
+        { day: 'Thu', time: '2PM-5PM', course: 'CVE 202', tutor: 'Absamie', venue: 'Room 210' },
+        { day: 'Fri', time: '9AM-12PM', course: 'MTS 316', tutor: 'E-simple', venue: 'Room 102' },
+        { day: 'Sat', time: '10AM-1PM', course: 'EEE 302', tutor: 'O\'yemi', venue: 'Electronics Lab' }
     ],
     results: [],
     bundles: [
-        { id: 'b1', name: '100 Level Bundle', courses: ['MTH 102', 'CHM 102'], discount: 10, active: true },
-        { id: 'b2', name: '200 Level Bundle', courses: ['MTS 202', 'CVE 202'], discount: 10, active: true },
-        { id: 'b3', name: '300 Level Bundle', courses: ['MTS 316', 'EEE 302'], discount: 10, active: true }
+        { id: 'b1', courses: ['MTH 102', 'CHM 102'], discount: 10, active: true },
+        { id: 'b2', courses: ['MTS 202', 'CVE 202'], discount: 10, active: true },
+        { id: 'b3', courses: ['MTS 316', 'EEE 302'], discount: 10, active: true }
     ]
 };
 
 if(localStorage.getItem('gpaData')) { try { academyData = { ...academyData, ...JSON.parse(localStorage.getItem('gpaData')) }; } catch(e) {} }
 function saveData() { localStorage.setItem('gpaData', JSON.stringify(academyData)); }
 
-// Page Navigation
 function showPage(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(page + 'Page').classList.add('active');
-    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-    if(page === 'home') { document.querySelector('.nav-links a:nth-child(1)').classList.add('active'); loadHomePage(); }
-    else if(page === 'courses') { document.querySelector('.nav-links a:nth-child(2)').classList.add('active'); loadCoursesPage(); }
-    else if(page === 'timetable') { document.querySelector('.nav-links a:nth-child(3)').classList.add('active'); loadTimetablePage(); }
-    else if(page === 'results') { document.querySelector('.nav-links a:nth-child(4)').classList.add('active'); }
-    else if(page === 'register') { document.querySelector('.nav-links a:nth-child(5)').classList.add('active'); loadRegisterPage(); }
+    closeMobileMenu();
+    if(page === 'home') loadHomePage();
+    else if(page === 'courses') loadCoursesPage();
+    else if(page === 'timetable') loadTimetablePage();
+    else if(page === 'register') loadRegisterPage();
 }
 
 function loadHomePage() {
@@ -494,9 +1088,9 @@ function loadCoursesPage() {
     ['100','200','300'].forEach(level => {
         const courses = academyData.courses.filter(c => c.level === level);
         html += `<div class="course-card"><span class="course-level">${level} LEVEL</span>`;
-        courses.forEach(c => { html += `<div class="course-item"><div class="course-code">${c.code}</div><div class="course-name">${c.name}</div><div style="display: flex; justify-content: space-between;"><span class="course-price">₦${c.price.toLocaleString()}</span><span class="course-enrolled">${c.enrolled}/${c.capacity} enrolled</span></div></div>`; });
+        courses.forEach(c => { html += `<div class="course-item"><div class="course-code">${c.code}</div><div class="course-name">${c.name}</div><div style="display: flex; justify-content: space-between;"><span class="course-price">₦${c.price.toLocaleString()}</span><span>${c.enrolled}/${c.capacity}</span></div></div>`; });
         const bundle = academyData.bundles.find(b => b.active && b.courses.every(c => courses.some(lc => lc.code === c)));
-        if(bundle) { const orig = courses.filter(c => bundle.courses.includes(c.code)).reduce((s,c) => s + c.price, 0); const bp = orig - (orig * bundle.discount / 100); html += `<div class="bundle-tag"><i class="fas fa-tags"></i> <strong>Bundle both: ₦${bp.toLocaleString()}</strong> (Save ${bundle.discount}% - ₦${(orig * bundle.discount / 100).toLocaleString()})</div>`; }
+        if(bundle) { const orig = courses.filter(c => bundle.courses.includes(c.code)).reduce((s,c) => s + c.price, 0); const bp = orig - (orig * bundle.discount / 100); html += `<div class="bundle-tag"><i class="fas fa-tags"></i> <strong>Bundle: ₦${bp.toLocaleString()}</strong> (Save ${bundle.discount}%)</div>`; }
         html += '</div>';
     });
     document.getElementById('coursesContainer').innerHTML = html;
@@ -516,72 +1110,25 @@ function loadRegisterPage() {
 
 function updateRegType() {
     const type = document.getElementById('regType').value;
-    document.getElementById('testPriceMessage').innerHTML = type === 'Test Only' ? `<i class="fas fa-info-circle"></i> Test-Only Price: ₦${academyData.settings.testPrice.toLocaleString()}` : '';
+    document.getElementById('testPriceMessage').innerHTML = type === 'Test Only' ? `Test-Only Price: ₦${academyData.settings.testPrice.toLocaleString()}` : '';
 }
 
-// Form Submit Handler - This runs before FormSubmit
 document.getElementById('registrationForm').addEventListener('submit', function(e) {
     if(!document.getElementById('agreePrivacy').checked || !document.getElementById('agreeTerms').checked || !document.getElementById('agreeStudent').checked || !document.getElementById('agreeConduct').checked) {
-        e.preventDefault();
-        alert('Please agree to all required policies and agreements.');
-        return false;
+        e.preventDefault(); alert('Please agree to all required policies.'); return false;
     }
-    
     const type = document.getElementById('regType').value;
     const selected = Array.from(document.querySelectorAll('#courseSelectionArea input:checked'));
-    const selectedCourses = selected.map(cb => cb.value);
-    
-    if(selectedCourses.length === 0 && type !== 'Test Only') {
-        e.preventDefault();
-        alert('Please select at least one course.');
-        return false;
-    }
-    
-    // Calculate amount
-    let amount = 0;
-    if(type === 'Premium Class') {
-        amount = selected.reduce((sum, cb) => sum + parseInt(cb.dataset.price), 0);
-        academyData.bundles.filter(b => b.active).forEach(b => {
-            if(b.courses.every(c => selectedCourses.includes(c))) {
-                const bundleTotal = b.courses.reduce((s, code) => s + (academyData.courses.find(c => c.code === code)?.price || 0), 0);
-                amount -= (bundleTotal * b.discount / 100);
-            }
-        });
-    } else {
-        amount = academyData.settings.testPrice;
-    }
-    
-    // Generate Student ID
+    if(selected.length === 0 && type !== 'Test Only') { e.preventDefault(); alert('Please select a course.'); return false; }
+    let amount = type === 'Premium Class' ? selected.reduce((sum, cb) => sum + parseInt(cb.dataset.price), 0) : academyData.settings.testPrice;
+    if(type === 'Premium Class') { academyData.bundles.filter(b => b.active).forEach(b => { if(b.courses.every(c => selected.map(cb => cb.value).includes(c))) amount -= (b.courses.reduce((s, code) => s + (academyData.courses.find(c => c.code === code)?.price || 0), 0) * b.discount / 100); }); }
     const studentId = 'GPA' + String(academyData.students.length + 1).padStart(3, '0');
-    
-    // Set hidden fields for email
-    document.getElementById('selectedCoursesHidden').value = selectedCourses.join(', ');
+    document.getElementById('selectedCoursesHidden').value = selected.map(cb => cb.value).join(', ');
     document.getElementById('totalAmountHidden').value = '₦' + amount.toLocaleString();
     document.getElementById('studentIdHidden').value = studentId;
-    
-    // Save to local data
-    const student = {
-        id: studentId,
-        name: document.getElementById('regName').value,
-        email: document.getElementById('regEmail').value,
-        phone: document.getElementById('regPhone').value,
-        institution: document.getElementById('regInstitution').value,
-        level: document.getElementById('regLevel').value,
-        type: type,
-        courses: selectedCourses,
-        amount: amount,
-        paymentStatus: 'submitted',
-        approved: false,
-        registeredDate: new Date().toISOString().split('T')[0]
-    };
-    academyData.students.push(student);
+    academyData.students.push({ id: studentId, name: document.getElementById('regName').value, email: document.getElementById('regEmail').value, phone: document.getElementById('regPhone').value, institution: document.getElementById('regInstitution').value, level: document.getElementById('regLevel').value, type, courses: selected.map(cb => cb.value), amount, paymentStatus: 'submitted', approved: false, registeredDate: new Date().toISOString().split('T')[0] });
     saveData();
-    
-    // Show success message (FormSubmit will handle the actual submission)
-    setTimeout(() => {
-        alert(`✅ Registration Submitted!\n\nYour Student ID: ${studentId}\nAmount: ₦${amount.toLocaleString()}\n\nPlease check your email for payment instructions.`);
-    }, 100);
-    
+    setTimeout(() => { alert(`✅ Registered!\nID: ${studentId}\nAmount: ₦${amount.toLocaleString()}`); }, 100);
     return true;
 });
 
@@ -589,11 +1136,10 @@ function searchStudentResults() {
     const id = document.getElementById('resultSearchInput').value.toUpperCase().trim();
     const results = academyData.results.filter(r => r.studentId.toUpperCase().includes(id));
     let html = '';
-    results.forEach(r => { html += `<div class="result-card"><h3>${r.studentName} (${r.studentId})</h3><p><strong>${r.course}</strong></p><div style="display: grid; grid-template-columns: repeat(3,1fr); gap:15px; margin:15px 0;"><div>Test 1: ${r.test1}/20</div><div>Test 2: ${r.test2}/20</div><div>Exam: ${r.exam}/60</div></div><div style="display:flex; justify-content:space-between;"><span style="font-size:1.2rem; font-weight:700;">Total: ${r.total}%</span><span class="grade-badge grade-${r.grade.toLowerCase()}">${r.grade}</span></div></div>`; });
-    document.getElementById('resultsDisplayContainer').innerHTML = html || '<p style="text-align:center; padding:40px;">No results found. Please check your Student ID.</p>';
+    results.forEach(r => { html += `<div class="result-card"><h3>${r.studentName} (${r.studentId})</h3><p><strong>${r.course}</strong></p><div style="display: grid; grid-template-columns: repeat(3,1fr); gap:8px; margin:12px 0;"><div>T1: ${r.test1}/20</div><div>T2: ${r.test2}/20</div><div>Exam: ${r.exam}/60</div></div><div style="display:flex; justify-content:space-between;"><span>Total: ${r.total}%</span><span class="grade-badge grade-${r.grade.toLowerCase()}">${r.grade}</span></div></div>`; });
+    document.getElementById('resultsDisplayContainer').innerHTML = html || '<p style="text-align:center; padding:30px;">No results found.</p>';
 }
 
-// Modals
 function showLegalModal(id) { document.getElementById(id).style.display = 'flex'; }
 function closeLegalModal(id) { document.getElementById(id).style.display = 'none'; }
 function openLoginModal() { document.getElementById('adminLoginModal').style.display = 'flex'; }
@@ -603,13 +1149,10 @@ function handleAdminLogin(e) {
     e.preventDefault();
     if(document.getElementById('adminPassword').value === 'GENIUSPOINTACADEMYPREMIUMCLASS2026-FIRST-EDITION') { 
         closeLoginModal(); 
-        alert(`Welcome, ${document.getElementById('adminName').value}! Admin panel would open here.`); 
-    } else { 
-        alert('Invalid password!'); 
-    }
+        alert(`Welcome, ${document.getElementById('adminName').value}!`); 
+    } else { alert('Invalid password!'); }
 }
 
-// Countdown
 function updateCountdown() {
     const deadline = new Date(academyData.settings.deadline + 'T23:59:59');
     const diff = deadline - new Date();
@@ -621,14 +1164,9 @@ function updateCountdown() {
     }
 }
 
-// Init
 window.onload = function() {
-    loadHomePage();
-    loadCoursesPage();
-    loadTimetablePage();
-    loadRegisterPage();
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    loadHomePage(); loadCoursesPage(); loadTimetablePage(); loadRegisterPage();
+    updateCountdown(); setInterval(updateCountdown, 1000);
 };
 </script>
 </body>
